@@ -117,13 +117,13 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `nome` varchar(60) NOT NULL,
+  `name` varchar(60) NOT NULL,
   `cpf` varchar(11) NOT NULL,
   `email` varchar(150) NOT NULL,
-  `telefone` varchar(15) NOT NULL,
-  `data_de_nascimento` datetime NOT NULL,
-  `idade` varchar(5) NOT NULL,
-  `login` varchar(60) NOT NULL,
+  `phone` varchar(15) NOT NULL,
+  `date_of_birth` datetime NOT NULL,
+  `age` varchar(5) NOT NULL,
+  `username` varchar(60) NOT NULL,
   `password` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
