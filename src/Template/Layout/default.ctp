@@ -31,6 +31,9 @@ use Cake\Network\Exception\NotFoundException;
     </title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="https://pingendo.com/assets/bootstrap/bootstrap-4.0.0-beta.1.css" type="text/css">
+    <?= $this->Html->css('base.css') ?>
+    <?= $this->Html->css('cake.css') ?>
+
 </head>
 <body>
 
@@ -55,14 +58,14 @@ use Cake\Network\Exception\NotFoundException;
 </nav>
   <!-- nav-menu -->
 
+
 <!-- conteudo -->
 <div class="main-content">
     <?= $this->fetch('content')?>
 </div>
 <!-- conteudo -->
 
-<!-- footer -->
-<footer class="py-5 bg-dark text-white">
+<!-- <footer class="py-5 bg-dark text-white">
     <div class="container">
       <div class="row">
         <div class="col-md-9">
@@ -107,8 +110,7 @@ use Cake\Network\Exception\NotFoundException;
         <ul style="text-align: center; color: red">
             <?= $connected ? '' : $errorMsg ?>
         </ul>
-  </footer>
-  <!-- footer -->
+  </footer> -->
 
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
