@@ -46,8 +46,8 @@ class SchedulesFixture extends TestFixture
     public $records = [
         [
             'id' => 1,
-            'day' => '2017-11-08',
-            'hour' => '11:28:18',
+            'day' => '2017-11-15',
+            'hour' => '01:43:25',
             'user_id' => 1,
             'service_id' => 1
         ],

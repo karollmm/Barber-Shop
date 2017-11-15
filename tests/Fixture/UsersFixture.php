@@ -22,7 +22,7 @@ class UsersFixture extends TestFixture
         'cpf' => ['type' => 'string', 'length' => 11, 'null' => false, 'default' => null, 'collate' => 'latin1_swedish_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'email' => ['type' => 'string', 'length' => 150, 'null' => false, 'default' => null, 'collate' => 'latin1_swedish_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'phone' => ['type' => 'string', 'length' => 15, 'null' => false, 'default' => null, 'collate' => 'latin1_swedish_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
-        'date_of_birth' => ['type' => 'datetime', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
+        'date_of_birth' => ['type' => 'date', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
         'age' => ['type' => 'string', 'length' => 5, 'null' => false, 'default' => null, 'collate' => 'latin1_swedish_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'username' => ['type' => 'string', 'length' => 60, 'null' => false, 'default' => null, 'collate' => 'latin1_swedish_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'password' => ['type' => 'string', 'length' => 255, 'null' => false, 'default' => null, 'collate' => 'latin1_swedish_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
@@ -48,7 +48,7 @@ class UsersFixture extends TestFixture
             'cpf' => 'Lorem ips',
             'email' => 'Lorem ipsum dolor sit amet',
             'phone' => 'Lorem ipsum d',
-            'date_of_birth' => '2017-11-08 11:28:08',
+            'date_of_birth' => '2017-11-15',
             'age' => 'Lor',
             'username' => 'Lorem ipsum dolor sit amet',
             'password' => 'Lorem ipsum dolor sit amet'

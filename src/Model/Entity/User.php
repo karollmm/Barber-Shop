@@ -11,7 +11,7 @@ use Cake\ORM\Entity;
  * @property string $cpf
  * @property string $email
  * @property string $phone
- * @property \Cake\I18n\FrozenTime $date_of_birth
+ * @property \Cake\I18n\FrozenDate $date_of_birth
  * @property string $age
  * @property string $username
  * @property string $password
