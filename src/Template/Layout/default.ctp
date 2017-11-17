@@ -42,13 +42,13 @@ use Cake\Network\Exception\NotFoundException;
       <div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fa d-inline fa-lg fa-bookmark-o"></i> Bookmarks</a>
+            <a class="nav-link" href="#"><i class="fa d-inline fa-lg fa-bookmark-o"></i> Cadastre sua Barbearia </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fa d-inline fa-lg fa-envelope-o"></i> Contacts</a>
+            <a class="nav-link" href="#"><i class="fa d-inline fa-lg fa-envelope-o"></i> Quem Somos </a>
           </li>
         </ul>
-        <a class="btn navbar-btn ml-2 text-white btn-secondary"><i class="fa d-inline fa-lg fa-user-circle-o"></i> Entrar </a>
+        <a class="btn navbar-btn ml-2 text-white btn-secondary"><i class="fa d-inline fa-lg fa-user-circle-o"></i> Login </a>
       </div>
     </div>
   </nav>

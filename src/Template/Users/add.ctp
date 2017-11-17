@@ -4,14 +4,14 @@
  * @var \App\Model\Entity\User $user
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
+<!-- <nav class="large-3 medium-4 columns" id="actions-sidebar">
   <ul class="side-nav">
     <li class="heading"><?= __('Actions') ?></li>
     <li><?= $this->Html->link(__('List Users'), ['action' => 'index']) ?></li>
     <li><?= $this->Html->link(__('List Schedules'), ['controller' => 'Schedules', 'action' => 'index']) ?></li>
     <li><?= $this->Html->link(__('New Schedule'), ['controller' => 'Schedules', 'action' => 'add']) ?></li>
   </ul>
-</nav>
+</nav> -->
 
 <div class="py-5">
   <div class="container">
@@ -41,7 +41,7 @@
             echo $this->Form->control('password', ['class' => 'form-control', 'label' => 'Senha', 'placeholder' => 'Senha']);
             ?>
             <br>
-            <?= $this->Form->button('Adicionar', ['class' => 'btn text-center text-white btn-block btn-success', 'type' => 'Submit']) ?>
+            <?= $this->Form->button('Salvar '.'<i class="fa fa-check" aria-hidden="true"></i>', ['class' => 'btn text-center text-white btn-block btn-success', 'type' => 'Submit']) ?>
             <?= $this->Form->end() ?>
           </div>
         </div>

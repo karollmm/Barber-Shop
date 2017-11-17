@@ -31,3 +31,40 @@ $this->layout = 'default'; //include para pagina default
   </div>
 </div>
 </div>
+
+<div class="py-5 text-center bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 p-4">
+          <div class="img-fluid d-block rounded-circle mx-auto" style="width: 200px; height: 200px; background-color: black;"></div>
+          <p class="my-4"><i>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec. </i></p>
+          <p><b>J. L. Fish</b>
+            <br>UI designer</p>
+        </div>
+        <div class="col-md-4 p-4">
+          <img class="img-fluid d-block rounded-circle mx-auto" src="https://pingendo.github.io/templates/sections/assets/test_carlito.jpg">
+          <p class="my-4"><i>Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Cum sociis natoque penatibus et magnis dis parturient montes.</i></p>
+          <p><b>Carlito</b>
+            <br>Boss</p>
+        </div>
+        <div class="col-md-4 p-4">
+          <img class="img-fluid d-block rounded-circle mx-auto" src="https://pingendo.github.io/templates/sections/assets/test_meow.jpg">
+          <p class="my-4"><i>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</i></p>
+          <p><b>Meow</b>
+            <br>Senior developer</p>
+        </div>
+        <div class="col-md-4 p-4">
+          <img class="img-fluid d-block rounded-circle mx-auto" src="https://pingendo.github.io/templates/sections/assets/test_fish.jpg">
+          <p class="my-4"><i>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec. </i></p>
+          <p><b>J. L. Fish</b>
+            <br>UI designer</p>
+        </div>
+        <div class="col-md-4 p-4">
+          <img class="img-fluid d-block rounded-circle mx-auto" src="https://pingendo.github.io/templates/sections/assets/test_carlito.jpg">
+          <p class="my-4"><i>Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Cum sociis natoque penatibus et magnis dis parturient montes.</i></p>
+          <p><b>Carlito</b>
+            <br>Boss</p>
+        </div>
+      </div>
+    </div>
+  </div>
