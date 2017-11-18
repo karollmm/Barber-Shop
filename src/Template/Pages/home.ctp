@@ -36,41 +36,39 @@ $this->layout = 'default'; //include para pagina default
       <div class="row">
         <div class="col-md-4 p-4">
           <div class="img-fluid d-block rounded-circle mx-auto bolha">
-            <i class="fa fa-camera-retro fa-4x icon-bolha" ></i>
+            <i class="fa fa-scissors fa-4x icon-bolha"></i>
           </div>
-          <p class="my-4"><i>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec. </i></p>
-          <p><b>J. L. Fish</b>
-            <br>UI designer</p>
+          <p><br><b>Serviços</b>
         </div>
         <div class="col-md-4 p-4">
-          <img class="img-fluid d-block rounded-circle mx-auto" src="https://pingendo.github.io/templates/sections/assets/test_carlito.jpg">
-          <p class="my-4"><i>Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Cum sociis natoque penatibus et magnis dis parturient montes.</i></p>
-          <p><b>Carlito</b>
-            <br>Boss</p>
+          <div class="img-fluid d-block rounded-circle mx-auto bolha">
+          <i class="fa fa-map-marker fa-4x icon-bolha"></i>
+          </div>
+          <p><br><b>Localização</b>
         </div>
         <div class="col-md-4 p-4">
-          <img class="img-fluid d-block rounded-circle mx-auto" src="https://pingendo.github.io/templates/sections/assets/test_meow.jpg">
-          <p class="my-4"><i>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</i></p>
-          <p><b>Meow</b>
-            <br>Senior developer</p>
+          <div class="img-fluid d-block rounded-circle mx-auto bolha">
+          <i class="fa fa-phone fa-4x icon-bolha"></i>
+          </div>
+          <p><br><b>Contato</b>
         </div>
         <div class="col-md-4 p-4">
-          <img class="img-fluid d-block rounded-circle mx-auto" src="https://pingendo.github.io/templates/sections/assets/test_fish.jpg">
-          <p class="my-4"><i>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec. </i></p>
-          <p><b>J. L. Fish</b>
-            <br>UI designer</p>
+          <div class="img-fluid d-block rounded-circle mx-auto bolha">
+          <i class="fa fa-street-view fa-4x icon-bolha"></i>
+          </div>
+          <p><br><b>Flexibilidade</b>
         </div>
         <div class="col-md-4 p-4">
-          <img class="img-fluid d-block rounded-circle mx-auto" src="https://pingendo.github.io/templates/sections/assets/test_carlito.jpg">
-          <p class="my-4"><i>Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Cum sociis natoque penatibus et magnis dis parturient montes.</i></p>
-          <p><b>Carlito</b>
-            <br>Boss</p>
+          <div class="img-fluid d-block rounded-circle mx-auto bolha">
+          <i class="fa fa-bell fa-4x icon-bolha"></i>
+          </div>
+          <p><br><b>Notiicações</b>
         </div>
         <div class="col-md-4 p-4">
-          <img class="img-fluid d-block rounded-circle mx-auto" src="https://pingendo.github.io/templates/sections/assets/test_carlito.jpg">
-          <p class="my-4"><i>Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Cum sociis natoque penatibus et magnis dis parturient montes.</i></p>
-          <p><b>Carlito</b>
-          <br>Boss</p>
+          <div class="img-fluid d-block rounded-circle mx-auto bolha">
+          <i class="fa fa-star fa-4x icon-bolha"></i>
+          </div>
+          <p><br><b>Tendências</b>
         </div>
       </div>
     </div>
