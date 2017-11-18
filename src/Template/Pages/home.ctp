@@ -26,7 +26,6 @@ $this->layout = 'default'; //include para pagina default
   <div class="row">
     <div class="col-md-12 text-white my-5">
 
-    
     </div>
   </div>
 </div>
@@ -72,6 +71,42 @@ $this->layout = 'default'; //include para pagina default
           <p class="my-4"><i>Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Cum sociis natoque penatibus et magnis dis parturient montes.</i></p>
           <p><b>Carlito</b>
           <br>Boss</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="py-5 bg-light">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="text-center mb-5 text-dark">Tendências de Cortes</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="p-0 col-md-2 col-6">
+          <a href="stories.html">
+            <img src="https://pingendo.github.io/templates/sections/assets/stories_6.jpg" class="img-fluid"> </a>
+        </div>
+        <div class="p-0 col-md-2 col-6">
+          <a href="stories.html">
+            <img src="https://pingendo.github.io/templates/sections/assets/stories_2.jpg" class="img-fluid"> </a>
+        </div>
+        <div class="p-0 col-md-2 col-6">
+          <a href="stories.html">
+            <img src="https://pingendo.github.io/templates/sections/assets/stories_3.jpg" class="img-fluid"> </a>
+        </div>
+        <div class="p-0 col-md-2 col-6">
+          <a href="stories.html">
+            <img src="https://pingendo.github.io/templates/sections/assets/stories_1.jpg" class="img-fluid"> </a>
+        </div>
+        <div class="p-0 col-md-2 col-6">
+          <a href="stories.html">
+            <img src="https://pingendo.github.io/templates/sections/assets/stories_5.jpg" class="img-fluid"> </a>
+        </div>
+        <div class="p-0 col-md-2 col-6">
+          <a href="stories.html">
+            <img src="https://pingendo.github.io/templates/sections/assets/stories_4.jpg" class="img-fluid"> </a>
         </div>
       </div>
     </div>
