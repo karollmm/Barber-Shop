@@ -30,6 +30,7 @@ use Cake\Network\Exception\NotFoundException;
   </title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
   <?= $this->Html->css('bootstrap-pingendo.css') ?>
+  <?= $this->Html->css('barber-shop-style.css') ?>
 </head>
 <body>
 

@@ -36,7 +36,9 @@ $this->layout = 'default'; //include para pagina default
     <div class="container">
       <div class="row">
         <div class="col-md-4 p-4">
-          <div class="img-fluid d-block rounded-circle mx-auto" style="width: 200px; height: 200px; background-color: white; "><i class="fa fa-camera-retro fa-4x" style="margin-top: 65px;"></i></div>
+          <div class="img-fluid d-block rounded-circle mx-auto bolha">
+            <i class="fa fa-camera-retro fa-4x icon-bolha" ></i>
+          </div>
           <p class="my-4"><i>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec. </i></p>
           <p><b>J. L. Fish</b>
             <br>UI designer</p>
@@ -64,6 +66,12 @@ $this->layout = 'default'; //include para pagina default
           <p class="my-4"><i>Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Cum sociis natoque penatibus et magnis dis parturient montes.</i></p>
           <p><b>Carlito</b>
             <br>Boss</p>
+        </div>
+        <div class="col-md-4 p-4">
+          <img class="img-fluid d-block rounded-circle mx-auto" src="https://pingendo.github.io/templates/sections/assets/test_carlito.jpg">
+          <p class="my-4"><i>Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Cum sociis natoque penatibus et magnis dis parturient montes.</i></p>
+          <p><b>Carlito</b>
+          <br>Boss</p>
         </div>
       </div>
     </div>
