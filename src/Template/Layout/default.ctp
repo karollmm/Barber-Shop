@@ -62,7 +62,7 @@ use Cake\Network\Exception\NotFoundException;
 
             <div class="btn-group">
 
-              <button class="btn btn-dark dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Cadastra-se </button>
+              <button class="btn btn-dark dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Cadastre-se </button>
 
               <div class="dropdown-menu">
 
