@@ -23,10 +23,10 @@
             <h1 class="mb-4 text-center">Adicionar Usuário</h1>
             <?= $this->Form->create($user) ?>
             <?php
-            echo $this->Form->control('name', ['class' => 'form-control', 'label' => 'Nome', 'placeholder' => 'Nome']);
-            echo $this->Form->control('cpf', ['class' => 'form-control', 'label' =>'CPF', 'placeholder' => 'CPF']);
-            echo $this->Form->control('email', ['class' => 'form-control', 'label' =>'Email', 'placeholder' => 'Email']);
-            echo $this->Form->control('phone', ['class' => 'form-control', 'label' => 'Telefone', 'placeholder' => 'Telefone']);
+            echo $this->Form->control('name', ['class' => 'form-control', 'label' => 'Nome:', 'placeholder' => 'Nome']);
+            echo $this->Form->control('cpf', ['class' => 'form-control', 'label' =>'CPF:', 'placeholder' => 'CPF']);
+            echo $this->Form->control('email', ['class' => 'form-control', 'label' =>'Email:', 'placeholder' => 'Email']);
+            echo $this->Form->control('phone', ['class' => 'form-control', 'label' => 'Telefone:', 'placeholder' => 'Telefone']);
             echo $this->Form->control('date_of_birth', 
               
               [
@@ -36,9 +36,9 @@
               ] 
               
             );
-            echo $this->Form->control('age', ['class' => 'form-control', 'label' => 'Ano', 'placeholder' => 'Ano']);
-            echo $this->Form->control('username', ['class' => 'form-control', 'label' => 'Usuário', 'placeholder' => 'Usuário']);
-            echo $this->Form->control('password', ['class' => 'form-control', 'label' => 'Senha', 'placeholder' => 'Senha']);
+            echo $this->Form->control('age', ['class' => 'form-control', 'label' => 'Idade:', 'placeholder' => 'Idade']);
+            echo $this->Form->control('username', ['class' => 'form-control', 'label' => 'Usuário:', 'placeholder' => 'Usuário']);
+            echo $this->Form->control('password', ['class' => 'form-control', 'label' => 'Senha:', 'placeholder' => 'Senha']);
             ?>
             <br>
             <?= $this->Form->button('Salvar '.'<i class="fa fa-check" aria-hidden="true"></i>', ['class' => 'btn text-center text-white btn-block btn-success', 'type' => 'Submit']) ?>

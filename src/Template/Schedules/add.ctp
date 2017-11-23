@@ -4,7 +4,7 @@
  * @var \App\Model\Entity\Schedule $schedule
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
+<!-- <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('List Schedules'), ['action' => 'index']) ?></li>
@@ -13,7 +13,7 @@
         <li><?= $this->Html->link(__('List Services'), ['controller' => 'Services', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Service'), ['controller' => 'Services', 'action' => 'add']) ?></li>
     </ul>
-</nav>
+</nav> -->
 
 <div class="py-5">
   <div class="container">
@@ -39,8 +39,8 @@
               
             );
           
-            echo $this->Form->control('user', ['class' => 'form-control', 'label' =>'Usuario', 'placeholder' => 'Usuario', 'options' => $users]);
-            echo $this->Form->control('service_id', ['class' => 'form-control', 'label' => 'Serviço', 'placeholder' => 'Serviço', 'options' => $services]);
+            echo $this->Form->control('user', ['class' => 'form-control', 'label' =>'Usuario:', 'placeholder' => 'Usuario', 'options' => $users]);
+            echo $this->Form->control('service_id', ['class' => 'form-control', 'label' => 'Serviço:', 'placeholder' => 'Serviço', 'options' => $services]);
            
             ?>
             <br>

@@ -4,7 +4,7 @@
  * @var \App\Model\Entity\Service $service
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
+<!-- <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('List Services'), ['action' => 'index']) ?></li>
@@ -13,7 +13,7 @@
         <li><?= $this->Html->link(__('List Schedules'), ['controller' => 'Schedules', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Schedule'), ['controller' => 'Schedules', 'action' => 'add']) ?></li>
     </ul>
-</nav>
+</nav> -->
 <div class="py-5">
   <div class="container">
     <div class="row">
@@ -24,9 +24,9 @@
             <h1 class="mb-4 text-center">Adicionar Serviço</h1>
            
             <?php
-            echo $this->Form->control('name', ['class' => 'form-control', 'label' => 'Nome', 'placeholder' => 'Nome']);
-            echo $this->Form->control('price', ['class' => 'form-control', 'label' =>'Preço', 'placeholder' => 'Preço']);
-            echo $this->Form->control('detail', ['class' => 'form-control', 'label' =>'Detalhe', 'placeholder' => 'Detalhe']);
+            echo $this->Form->control('name', ['class' => 'form-control', 'label' => 'Nome:', 'placeholder' => 'Nome']);
+            echo $this->Form->control('price', ['class' => 'form-control', 'label' =>'Preço:', 'placeholder' => 'Preço']);
+            echo $this->Form->control('detail', ['class' => 'form-control', 'label' =>'Detalhe:', 'placeholder' => 'Detalhe']);
             
           
              ?>       
