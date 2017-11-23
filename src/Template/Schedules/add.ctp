@@ -22,19 +22,19 @@
       <div class="col-md-6">
         <div class="card text-white p-5 bg-dark">
           <div class="card-body">
-            <h1 class="mb-4 text-center">Adicionar Cronograma</h1>
+            <h1 class="mb-4 text-center">Adicionar Agendamento</h1>
               <?= $this->Form->create($schedule) ?>
             <?php
             echo $this->Form->control('day', 
               
               [
-                'class' => 'form-control', 'label' => 'Date de Nascimento: ','dateFormat' => 'DMY','minYear' => date ( 'Y' ) -90, 'maxYear' => date ( 'Y' ) -10, 
+                'class' => 'form-control', 'label' => 'Data: ','dateFormat' => 'DMY','minYear' => date ( 'Y' ) -90, 'maxYear' => date ( 'Y' ) -10, 
                 'monthNames' => 
                 [ '01' => 'Janeiro','02' => 'Fevereiro','03' => 'Março','04' => 'Abril','05' => 'Maio','06' => 'Junho','07' => 'Julho','08' => 'Agosto','09' => 'Setembro','10' => 'Outubro','11' => 'Novembro','12' => 'Dezembro'] 
               ] 
               
             );
-             echo $this->Form->control('hour', ['class' => 'form-control', 'label' =>'Hora', 'placeholder' => 'Hora']
+             echo $this->Form->control('hour', ['class' => 'form-control', 'label' =>'Hora: ', 'placeholder' => 'Hora']
            
               
             );
