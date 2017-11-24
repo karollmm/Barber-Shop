@@ -45,7 +45,9 @@ use Cake\Network\Exception\NotFoundException;
 
     <div class="container">
 
-      <a class="navbar-brand" href="#"><b> BarberShop </b></a>
+
+      <?= $this->Html->link(' <b> BarberShop </b> ', ['controller' => 'pages','action' => 'home'],
+      ['escape' => false, 'class' => 'navbar-brand']) ?>
 
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar2SupportedContent" aria-controls="navbar2SupportedContent" aria-expanded="false"
       aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
@@ -62,11 +64,13 @@ use Cake\Network\Exception\NotFoundException;
 
             <div class="btn-group">
 
-              <button class="btn btn-dark dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Cadastre-se </button>
+              <button class="btn btn-dark dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user-circle-o" aria-hidden="true"></i> 
+              Cadastre-se </button>
 
               <div class="dropdown-menu">
 
-                <a class="dropdown-item" href="#"><i class="fa fa-user" aria-hidden="true"></i> Sou cliente </a>
+                <?= $this->Html->link( '<i class="fa fa-user" aria-hidden="true"></i> ' . 'Sou cliente', ['controller' => 'users','action' => 'add'], 
+                ['escape' => false, 'class' => 'dropdown-item']) ?>
 
                 <div class="dropdown-divider"></div>
 
@@ -77,7 +81,10 @@ use Cake\Network\Exception\NotFoundException;
             </li>
             
             <li class="nav-item">
-              <a class="btn navbar-btn ml-2 text-white btn-dark"><i class="fa fa-sign-in" aria-hidden="true"></i> Login </a>
+
+              <?= $this->Html->link( '<i class="fa fa-sign-in" aria-hidden="true"></i>' . ' Login ', ['controller' => 'users','action' => 'login'], 
+              ['class' => 'btn navbar-btn ml-2 text-white btn-dark', 'escape' => false]) ?>
+
             </li>
 
           </ul>
@@ -93,7 +100,7 @@ use Cake\Network\Exception\NotFoundException;
 </nav>
 <!-- nav-menu -->
 
-
+<?= $this->Flash->render() ?>
 <!-- conteudo -->
 <div class="main-content">
   <?= $this->fetch('content')?>
@@ -116,26 +123,26 @@ use Cake\Network\Exception\NotFoundException;
           <a href="#" class="text-white">Agendamentos</a>
         </ul>
       </div>
-    <div class="col-md-4 p-2 col-sm-1">
-      <h3 class="mb-1">Somos</h3>
-      <p class="p-0">"<i class="p-1">Somos uma plataforma de busca e agendamento online, onde você usúario tem muito mais praticidade e facilidade no agendamento de um horario em uma barbearia.</i>" &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
-        <br> </p>
-    </div>
-    <div class="p-5 col-md-d align-self-end">
-      <h3 class="mt-1">Social</h3>
-        <i class="fa fa-envelope-o"></i> E-mail: Barbershops@gmail.com<br>
-        <i class="fa fa-phone"></i> Telefone:(81) 0000-0000<br><br>
-      <div class="align-self-center col-12 my-4">
-        <a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook-square fa-2x d-inline fa-lg mr-3 text-white"></i></a>
-        <a href="https://twitter.com" target="_blank"><i class="fa fa-twitter fa-2x d-inline mx-3 fa-lg text-white"></i></a>
-        <a href="https://www.instagram.com" target="_blank"><i class="fa fa-instagram fa-2x d-inline mx-3 fa-lg text-white"></i></a>
-        <a href="https://plus.google.com" target="_blank"><i class="fa fa-google-plus-official fa-2x d-inline mx-3 fa-lg text-white"></i></a>
+      <div class="col-md-4 p-2 col-sm-1">
+        <h3 class="mb-1">Somos</h3>
+        <p class="p-0">"<i class="p-1">Somos uma plataforma de busca e agendamento online, onde você usúario tem muito mais praticidade e facilidade no agendamento de um horario em uma barbearia.</i>" &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+          <br> </p>
+        </div>
+        <div class="p-5 col-md-d align-self-end">
+          <h3 class="mt-1">Social</h3>
+          <i class="fa fa-envelope-o"></i> E-mail: Barbershops@gmail.com<br>
+          <i class="fa fa-phone"></i> Telefone:(81) 0000-0000<br><br>
+          <div class="align-self-center col-12 my-4">
+            <a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook-square fa-2x d-inline fa-lg mr-3 text-white"></i></a>
+            <a href="https://twitter.com" target="_blank"><i class="fa fa-twitter fa-2x d-inline mx-3 fa-lg text-white"></i></a>
+            <a href="https://www.instagram.com" target="_blank"><i class="fa fa-instagram fa-2x d-inline mx-3 fa-lg text-white"></i></a>
+            <a href="https://plus.google.com" target="_blank"><i class="fa fa-google-plus-official fa-2x d-inline mx-3 fa-lg text-white"></i></a>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
       <p class="text-center"> © Copyright 2017 BarberShop - All rights reserved. </p>
-  </footer>
-</div>
+    </footer>
+  </div>
   
   <?php
   

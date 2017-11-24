@@ -45,21 +45,21 @@ class AppController extends Controller
     public function initialize()
     {
         parent::initialize();
-
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
         $this->loadComponent('Auth', [
+
             'loginRedirect' => [
                'controller' => 'Pages',
-                'action' => 'display',
-                'home'
-            ],
-            'logoutRedirect' => [
-                'controller' => 'Pages',
-                'action' => 'display',
-                'home'
-            ]
-        ]);
+               'action' => 'display',
+               'home'
+           ],
+           'logoutRedirect' => [
+            'controller' => 'Pages',
+            'action' => 'display',
+            'home'
+        ]
+    ]);
 
         /*
          * Enable the following components for recommended CakePHP security settings.
@@ -84,6 +84,7 @@ class AppController extends Controller
             in_array($this->response->type(), ['application/json', 'application/xml'])
         ) {
             $this->set('_serialize', true);
-        }
+    }
+
     }
 }
