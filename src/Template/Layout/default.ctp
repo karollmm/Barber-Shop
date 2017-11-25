@@ -113,7 +113,7 @@ use Cake\Network\Exception\NotFoundException;
 
   <footer class="container">
     <div class="row">
-      <div class="p-2 col-md-3 col-sm-1">
+      <div class="p-2 col-md-3 col-md-3 ml-auto">
         <h3 class="mb-4">Barber Shop</h3>
         <ul class="list-unstyled p-1">
           <a href="#" class="text-white">Barbearias</a>

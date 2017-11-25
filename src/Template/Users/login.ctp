@@ -12,8 +12,8 @@
               <p>
                 <strong><?= __('Por favor, entre com seu e-mail e senha: ') ?></strong>
               </p>
-              <?= $this->Form->control('username',['label' => 'E-mail', 'class' => 'form-control']) ?>
-              <?= $this->Form->control('password',['label' => 'Senha', 'class' => 'form-control']) ?>
+              <?= $this->Form->control('username',['class' => 'form-control', 'label' => 'E-mail', 'placeholder' => 'E-mail']) ?>
+              <?= $this->Form->control('password',['class' => 'form-control', 'label' => 'Senha', 'placeholder' => 'Senha']) ?>
             </fieldset>
             <br>
             <?= $this->Form->button(__('Entrar'), array('type' => 'submit', 'class' => 'btn btn-block btn-success btn-lg')); ?>
