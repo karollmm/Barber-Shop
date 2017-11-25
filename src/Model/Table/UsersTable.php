@@ -77,12 +77,7 @@ class UsersTable extends Table
             ->date('date_of_birth')
             ->requirePresence('date_of_birth', 'create')
             ->notEmpty('date_of_birth');
-
-        $validator
-            ->scalar('age')
-            ->requirePresence('age', 'create')
-            ->notEmpty('age');
-
+            
         $validator
             ->scalar('username')
             ->requirePresence('username', 'create')

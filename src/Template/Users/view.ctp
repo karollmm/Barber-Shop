@@ -35,10 +35,6 @@
             <td><?= h($user->phone) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Age') ?></th>
-            <td><?= h($user->age) ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Username') ?></th>
             <td><?= h($user->username) ?></td>
         </tr>

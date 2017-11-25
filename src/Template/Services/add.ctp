@@ -14,12 +14,12 @@
         <li><?= $this->Html->link(__('New Schedule'), ['controller' => 'Schedules', 'action' => 'add']) ?></li>
     </ul>
 </nav> -->
-<div class="py-5">
+<div class="py-5 bg-light">
   <div class="container">
     <div class="row">
       <div class="col-md-3"> </div>
       <div class="col-md-6">
-        <div class="card text-white p-5 bg-dark">
+        <div class="card bg-light text-dark">
           <div class="card-body">
             <h1 class="mb-4 text-center">Adicionar Serviço</h1>
            

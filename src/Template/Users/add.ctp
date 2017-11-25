@@ -36,7 +36,6 @@
                   'monthNames' => 
                   [ '01' => 'Janeiro','02' => 'Fevereiro','03' => 'Março','04' => 'Abril','05' => 'Maio','06' => 'Junho','07' => 'Julho','08' => 'Agosto','09' => 'Setembro','10' => 'Outubro','11' => 'Novembro','12' => 'Dezembro'] 
                 ]);
-              echo $this->Form->control('age', ['class' => 'form-control', 'label' => 'Idade:', 'placeholder' => 'Idade']);
               echo $this->Form->control('username', ['class' => 'form-control', 'label' => 'Usuário:', 'placeholder' => 'Usuário']);
               echo $this->Form->control('password', ['class' => 'form-control', 'label' => 'Senha:', 'placeholder' => 'Senha']);
               ?>
