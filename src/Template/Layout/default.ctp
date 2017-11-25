@@ -36,6 +36,8 @@ use Cake\Network\Exception\NotFoundException;
   <?= $this->Html->css('bootstrap-pingendo.css') ?>
   <?= $this->Html->css('barber-shop-style.css') ?>
 
+
+
 </head>
 
 <body>
