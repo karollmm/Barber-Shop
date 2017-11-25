@@ -76,3 +76,23 @@ div.message.success:before {
     color: #C3232D;
 }
 
+label {
+    color: #4d4d4d;
+    cursor: pointer;
+    display: block;
+    font-size: 0.875rem;
+    font-weight: normal;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+select {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #ccc;
+    color: rgba(0, 0, 0, 0.75);
+    font-size: 0.875rem;
+    line-height: normal;
+    padding: 0.5rem;
+    height: 2.3125rem;
+}
