@@ -111,7 +111,7 @@ use Cake\Network\Exception\NotFoundException;
 
   <footer class="container">
     <div class="row">
-      <div class="p-2 col-md-3 col-1">
+      <div class="p-2 col-md-3 col-sm-1">
         <h3 class="mb-4">Barber Shop</h3>
         <ul class="list-unstyled p-1">
           <a href="#" class="text-white">Barbearias</a>
@@ -128,7 +128,7 @@ use Cake\Network\Exception\NotFoundException;
         <p class="p-0">"<i class="p-1">Somos uma plataforma de busca e agendamento online, onde você usúario tem muito mais praticidade e facilidade no agendamento de um horario em uma barbearia.</i>" &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
           <br> </p>
         </div>
-        <div class="p-5 col-md-d align-self-end">
+        <div class="col-md-4 p-2 col-sm-1">
           <h3 class="mt-1">Social</h3>
           <i class="fa fa-envelope-o"></i> E-mail: Barbershops@gmail.com<br>
           <i class="fa fa-phone"></i> Telefone:(81) 0000-0000<br><br>
