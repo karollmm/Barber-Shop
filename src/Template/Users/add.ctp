@@ -13,6 +13,8 @@
   </ul>
 </nav> -->
 
+<?= $this->Flash->render() ?>
+
 <div class="py-5 bg-light">
   <div class="container">
     <div class="row">
@@ -21,14 +23,16 @@
         <div class="card bg-light text-dark">
           <div class="card-body">
             <h1 class="mb-4 text-center">Adicionar Usuário</h1>
+            <span>Atenção, os campos marcados com o * asterísco são obrigatórios. </span>
+            <br><br>
             <?= $this->Form->create($user) ?>
             <?php
-            echo $this->Form->control('name', ['class' => 'form-control', 'label' => 'Nome:', 'placeholder' => 'Nome']);
+            echo $this->Form->control('name', ['class' => 'form-control', 'label' => 'Nome: ', 'placeholder' => 'Nome']);
             echo $this->Form->control('cpf', ['class' => 'form-control', 'label' =>'CPF:', 'placeholder' => 'CPF']);
             echo $this->Form->control('email', ['class' => 'form-control', 'label' =>'Email:', 'placeholder' => 'Email']);
             echo $this->Form->control('phone', ['class' => 'form-control', 'label' => 'Telefone:', 'placeholder' => 'Telefone']);
             echo $this->Form->control('date_of_birth', 
-              
+
               [
                 'class' => 'form-control', 'label' => 'Date de Nascimento: ','dateFormat' => 'DMY','minYear' => date ( 'Y' ) -90, 'maxYear' => date ( 'Y' ) -10, 
                 'monthNames' => 

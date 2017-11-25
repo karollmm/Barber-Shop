@@ -68,3 +68,11 @@ div.message.success:before {
     content: "✓";
 }
 
+.required > label {
+    font-weight: bold;
+}
+.required > label:after {
+    content: ' *';
+    color: #C3232D;
+}
+
