@@ -58,7 +58,13 @@ div.message.hidden {
 }
 
 div.message.success{
-    background: white;
-    content: "\0056";
+    background-color: green;
+    color: #FFF;
+}
+
+div.message.success:before {
+    padding: 11px 16px 14px 7px;
+    color: green;
+    content: "✓";
 }
 
