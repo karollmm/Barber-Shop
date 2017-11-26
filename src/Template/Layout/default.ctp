@@ -43,9 +43,9 @@ use Cake\Network\Exception\NotFoundException;
 <body>
 
   <!-- nav-menu -->
-  <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top">
 
-    <div class="container">
+    <div class="container-fluid">
 
 
       <?= $this->Html->link(' <b> BarberShop </b> ', ['controller' => 'pages','action' => 'home'],
@@ -109,11 +109,10 @@ use Cake\Network\Exception\NotFoundException;
 </div>
 <!-- conteudo -->
 
-<div class="py-5 bg-dark text-white h-75">
-
+<div class="py-5 bg-dark text-white">
   <footer class="container">
     <div class="row">
-      <div class="p-2 col-md-3 col-md-3 ml-auto">
+      <div class="ml-auto col-12 col-md-3 p-2 col-lg-3">
         <h3 class="mb-4">Barber Shop</h3>
         <ul class="list-unstyled p-1">
           <a href="#" class="text-white">Barbearias</a>
@@ -125,12 +124,12 @@ use Cake\Network\Exception\NotFoundException;
           <a href="#" class="text-white">Agendamentos</a>
         </ul>
       </div>
-      <div class="col-md-4 p-2 col-sm-1">
+      <div class="p-2 ml-auto col-md-4 col-12 col-lg-4">
         <h3 class="mb-1">Somos</h3>
         <p class="p-0">"<i class="p-1">Somos uma plataforma de busca e agendamento online, onde você usúario tem muito mais praticidade e facilidade no agendamento de um horario em uma barbearia.</i>" &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
           <br> </p>
         </div>
-        <div class="col-md-4 p-2 col-sm-1">
+        <div class="ml-auto col-12 col-md-5 p-1 col-lg-4">
           <h3 class="mt-1">Social</h3>
           <i class="fa fa-envelope-o"></i> E-mail: Barbershops@gmail.com<br>
           <i class="fa fa-phone"></i> Telefone:(81) 0000-0000<br><br>
