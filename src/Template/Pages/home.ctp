@@ -13,8 +13,7 @@
  * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 
-
-$this->layout = 'default'; //include para pagina default
+$this->layout='default'; //include para pagina default
 
 ?>
 
@@ -62,7 +61,7 @@ $this->layout = 'default'; //include para pagina default
           <div class="img-fluid d-block rounded-circle mx-auto bolha">
           <i class="fa fa-bell fa-4x icon-bolha"></i>
           </div>
-          <p><br><b>Notiicações</b>
+          <p><br><b>Notificações</b>
         </div>
         <div class="col-md-4 p-4">
           <div class="img-fluid d-block rounded-circle mx-auto bolha">
