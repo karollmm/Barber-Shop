@@ -20,32 +20,60 @@
 
           <li class="nav-item">
 
-            <div class="btn-group">
 
-              <button class="btn btn-dark dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user-circle-o" aria-hidden="true"></i> 
-              Cadastre-se </button>
+            <?php $user = $this->request->session()->read('Auth.User'); ?>
+            <?php if($user): ?>
+              
+              <div class="btn-group">
 
-              <div class="dropdown-menu">
+                <button class="btn btn-dark dropdown-toggle" data-toggle="dropdown"> 
+                  <?= $user['name'] ?> 
+                </button>
 
-                <?= $this->Html->link( '<i class="fa fa-user" aria-hidden="true"></i> ' . 'Sou cliente', ['controller' => 'users','action' => 'add'], 
-                ['escape' => false, 'class' => 'dropdown-item']) ?>
+                  <div class="dropdown-menu">
 
-                <div class="dropdown-divider"></div>
+                    <?= $this->Html->link(__('<i class="fa fa-user-circle-o" aria-hidden="true"></i>'. ' Perfil') ,['controller' => 'Users', 'action' => 'view', $user['id']], ['escape' => false, 'class' => 'dropdown-item'])?>
 
-                <a class="dropdown-item" href="#"><i class="fa fa-home" aria-hidden="true"></i> Tenho uma Barbearia </a>
+                    <div class="dropdown-divider"></div>
 
-              </div>
+                    <?= $this->Html->link(__('<i class="fa fa-user" aria-hidden="true"></i>' . ' Logout'),['controller' => 'Users', 'action' => 'logout'], ['escape' => false, 'class' => 'dropdown-item'])?>                   
 
-            </li>
-            
-            <li class="nav-item">
+                  </div>
 
-              <?= $this->Html->link( '<i class="fa fa-sign-in" aria-hidden="true"></i>' . ' Login ', ['controller' => 'users','action' => 'login'], 
-              ['class' => 'btn navbar-btn ml-2 text-white btn-dark', 'escape' => false]) ?>
+                </li>
 
-            </li>
+            <?php else: ?>
 
-          </ul>
+              <div class="btn-group">
+
+                <button class="btn btn-dark dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user-circle-o" aria-hidden="true"></i> 
+                  Cadastre-se </button>
+
+                  <div class="dropdown-menu">
+
+                    <?= $this->Html->link( '<i class="fa fa-user" aria-hidden="true"></i> ' . 'Sou cliente', ['controller' => 'users','action' => 'add'], 
+                    ['escape' => false, 'class' => 'dropdown-item']) ?>
+
+                    <div class="dropdown-divider"></div>
+
+                    <a class="dropdown-item" href="#"><i class="fa fa-home" aria-hidden="true"></i> Tenho uma Barbearia </a>
+
+                  </div>
+
+                </li>
+
+                <li class="nav-item">
+
+                  <?= $this->Html->link( '<i class="fa fa-sign-in" aria-hidden="true"></i>' . ' Login ', ['controller' => 'users','action' => 'login'], 
+                  ['class' => 'btn navbar-btn ml-2 text-white btn-dark', 'escape' => false]) ?>
+
+                </li>
+
+              <?php endif ?>
+
+            </ul>
+
+          </div>
 
         </div>
 
@@ -53,7 +81,5 @@
 
     </div>
 
-  </div>
-
-</nav>
+  </nav>
 <!-- nav-menu -->
