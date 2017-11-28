@@ -33,9 +33,13 @@
                 [ '01' => 'Janeiro','02' => 'Fevereiro','03' => 'Março','04' => 'Abril','05' => 'Maio','06' => 'Junho','07' => 'Julho','08' => 'Agosto','09' => 'Setembro','10' => 'Outubro','11' => 'Novembro','12' => 'Dezembro'] 
               ]
             );
+            echo("<br />\n");
              echo $this->Form->control('hour', ['class' => 'form-control', 'label' =>'Hora: ', 'placeholder' => 'Hora']);
+             echo("<br />\n");
             echo $this->Form->control('user', ['class' => 'form-control', 'label' =>'Usuario:', 'placeholder' => 'Usuario', 'options' => $users]);
+            echo("<br />\n");
             echo $this->Form->control('service_id', ['class' => 'form-control', 'label' => 'Serviço:', 'placeholder' => 'Serviço', 'options' => $services]);
+            echo("<br />\n");
             ?>
             <br>
             <?= $this->Form->button('Salvar '.'<i class="fa fa-check" aria-hidden="true"></i>', ['class' => 'btn text-center text-white btn-block btn-success', 'type' => 'Submit']) ?>

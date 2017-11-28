@@ -27,17 +27,24 @@
             <?= $this->Form->create($user, ['class'=>'form-group']) ?>
               <?php
               echo $this->Form->control('name', ['class' => 'form-control', 'label' => 'Nome: ', 'placeholder' => 'Nome']);
+              echo("<br />\n");
               echo $this->Form->control('cpf', ['class' => 'form-control', 'label' =>'CPF:', 'placeholder' => 'CPF']);
+              echo("<br />\n");
               echo $this->Form->control('email', ['class' => 'form-control', 'label' =>'Email:', 'placeholder' => 'Email']);
+              echo("<br />\n");
               echo $this->Form->control('phone', ['class' => 'form-control', 'label' => 'Telefone:', 'placeholder' => 'Telefone']);
+              echo("<br />\n");
               echo $this->Form->control('date_of_birth', 
                 [
                   'class' => 'form-control', 'placeholder' => 'ano/mes/dia', 'label' => 'Date de Nascimento: ','dateFormat' => 'DMY','minYear' => date ( 'Y' ) -90, 'maxYear' => date ( 'Y' ) -10, 
                   'monthNames' => 
                   [ '01' => 'Janeiro','02' => 'Fevereiro','03' => 'Março','04' => 'Abril','05' => 'Maio','06' => 'Junho','07' => 'Julho','08' => 'Agosto','09' => 'Setembro','10' => 'Outubro','11' => 'Novembro','12' => 'Dezembro'] 
                 ]);
+              echo("<br />\n");
               echo $this->Form->control('username', ['class' => 'form-control', 'label' => 'Usuário:', 'placeholder' => 'Usuário']);
+              echo("<br />\n");
               echo $this->Form->control('password', ['class' => 'form-control', 'label' => 'Senha:', 'placeholder' => 'Senha']);
+              echo("<br />\n");
               ?>
             <br>
             <?= $this->Form->button('Salvar '.'<i class="fa fa-check" aria-hidden="true"></i>', ['class' => 'btn text-center text-white btn-block btn-success', 'type' => 'Submit']) ?>

@@ -25,8 +25,11 @@
            
             <?php
             echo $this->Form->control('name', ['class' => 'form-control', 'label' => 'Nome:', 'placeholder' => 'Nome']);
+            echo("<br />\n");
             echo $this->Form->control('price', ['class' => 'form-control', 'label' =>'Preço:', 'placeholder' => 'Preço']);
+            echo("<br />\n");
             echo $this->Form->control('detail', ['class' => 'form-control', 'label' =>'Detalhe:', 'placeholder' => 'Detalhe']);
+            echo("<br />\n");
             
           
              ?>       
