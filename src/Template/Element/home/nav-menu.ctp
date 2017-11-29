@@ -36,7 +36,7 @@
 
                     <div class="dropdown-divider"></div>
 
-                    <?= $this->Html->link(__('<i class="fa fa-user" aria-hidden="true"></i>' . ' Logout'),['controller' => 'Users', 'action' => 'logout'], ['escape' => false, 'class' => 'dropdown-item'])?>                   
+                    <?= $this->Html->link(__('<i class="fa fa-sign-out" aria-hidden="true"></i>' . ' Logout'),['controller' => 'Users', 'action' => 'logout'], ['escape' => false, 'class' => 'dropdown-item'])?>                   
 
                   </div>
 
