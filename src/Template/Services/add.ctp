@@ -13,32 +13,32 @@
         <li><?= $this->Html->link(__('List Schedules'), ['controller' => 'Schedules', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Schedule'), ['controller' => 'Schedules', 'action' => 'add']) ?></li>
     </ul>
-</nav> -->
-<div class="py-5 bg-light">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-3"> </div>
-      <div class="col-md-6">
-        <div class="card bg-light text-dark">
-          <div class="card-body">
-            <h1 class="mb-4 text-center">Adicionar Serviço</h1>
-           
-            <?php
-            echo $this->Form->control('name', ['class' => 'form-control', 'label' => 'Nome:', 'placeholder' => 'Nome']);
-            echo("<br />\n");
-            echo $this->Form->control('price', ['class' => 'form-control', 'label' =>'Preço:', 'placeholder' => 'Preço']);
-            echo("<br />\n");
-            echo $this->Form->control('detail', ['class' => 'form-control', 'label' =>'Detalhe:', 'placeholder' => 'Detalhe']);
-            echo("<br />\n");
-            
-          
-             ?>       
-                <br>
-            <?= $this->Form->button('Salvar '.'<i class="fa fa-check" aria-hidden="true"></i>', ['class' => 'btn text-center text-white btn-block btn-success', 'type' => 'Submit']) ?>
-            <?= $this->Form->end() ?>
+  </nav> -->
+  <div class="py-5 bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3"> </div>
+        <div class="col-md-6">
+          <div class="card bg-light text-dark">
+            <div class="card-body">
+              <h1 class="mb-4 text-center">Adicionar Serviço</h1>
+              <?= $this->Form->create($service, ['class'=>'form-group']) ?>
+              <?php
+              echo $this->Form->control('name', ['class' => 'form-control', 'label' => 'Nome:', 'placeholder' => 'Nome']);
+              echo("<br />\n");
+              echo $this->Form->control('price', ['class' => 'form-control', 'label' =>'Preço:', 'placeholder' => 'Preço']);
+              echo("<br />\n");
+              echo $this->Form->control('detail', ['class' => 'form-control', 'label' =>'Detalhe:', 'placeholder' => 'Detalhe']);
+              echo("<br />\n");
+              
+              
+              ?>       
+              <br>
+              <?= $this->Form->button('Salvar '.'<i class="fa fa-check" aria-hidden="true"></i>', ['class' => 'btn text-center text-white btn-block btn-success', 'type' => 'Submit']) ?>
+              <?= $this->Form->end() ?>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
