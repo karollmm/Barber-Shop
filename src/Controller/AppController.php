@@ -33,6 +33,15 @@ class AppController extends Controller
         $this->Auth->allow(['index', 'view', 'login', 'display']);
     }
 
+
+    public function isAuthorized($user){
+        // Admin can access every action
+        if (isset($user['username']) && $user['username'] === 'bac') {
+            return true;
+        }
+        return false;
+    }
+
     /**
      * Initialization hook method.
      *
@@ -54,6 +63,7 @@ class AppController extends Controller
                'action' => 'display',
                'home'
            ],
+           'authError' => 'Você deve realizar login para acessar esta página.',
            'logoutRedirect' => [
             'controller' => 'Pages',
             'action' => 'display',
@@ -86,5 +96,5 @@ class AppController extends Controller
             $this->set('_serialize', true);
     }
 
-    }
+}
 }

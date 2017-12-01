@@ -13,6 +13,21 @@ use App\Controller\AppController;
 class SchedulesController extends AppController
 {
 
+
+    public function isAuthorized($user){
+        if ($this->request->getParam('action') === 'add') {
+            return true;
+        }
+        if (in_array($this->request->getParam('action'), ['edit', 'delete'])) {
+            $schedulesId = (int) $this->request->getParam('pass.0');
+            if ($this->Schedules->isOwnedBy($schedulesId, $user['id'])) {
+                return true;
+            }
+        }
+        return parent::isAuthorized($user);
+    }
+
+
     /**
      * Index method
      *
