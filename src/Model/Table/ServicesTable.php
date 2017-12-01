@@ -45,6 +45,10 @@ class ServicesTable extends Table
         ]);
     }
 
+    public function isOwnedBy($params, $userId){
+        return $this->exists(['id' => $params, 'id_user' => $userId]);
+    }
+
     /**
      * Default validation rules.
      *
@@ -54,23 +58,23 @@ class ServicesTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->integer('id')
-            ->allowEmpty('id', 'create');
+        ->integer('id')
+        ->allowEmpty('id', 'create');
 
         $validator
-            ->scalar('name')
-            ->requirePresence('name', 'create')
-            ->notEmpty('name');
+        ->scalar('name')
+        ->requirePresence('name', 'create')
+        ->notEmpty('name');
 
         $validator
-            ->scalar('price')
-            ->requirePresence('price', 'create')
-            ->notEmpty('price');
+        ->scalar('price')
+        ->requirePresence('price', 'create')
+        ->notEmpty('price');
 
         $validator
-            ->scalar('detail')
-            ->requirePresence('detail', 'create')
-            ->notEmpty('detail');
+        ->scalar('detail')
+        ->requirePresence('detail', 'create')
+        ->notEmpty('detail');
 
         return $validator;
     }

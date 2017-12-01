@@ -56,20 +56,24 @@ class SchedulesTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->integer('id')
-            ->allowEmpty('id', 'create');
+        ->integer('id')
+        ->allowEmpty('id', 'create');
 
         $validator
-            ->date('day')
-            ->requirePresence('day', 'create')
-            ->notEmpty('day');
+        ->date('day')
+        ->requirePresence('day', 'create')
+        ->notEmpty('day');
 
         $validator
-            ->time('hour')
-            ->requirePresence('hour', 'create')
-            ->notEmpty('hour');
+        ->time('hour')
+        ->requirePresence('hour', 'create')
+        ->notEmpty('hour');
 
         return $validator;
+    }
+
+    public function isOwnedBy($params, $userId){
+        return $this->exists(['id' => $params, 'id_user' => $userId]);
     }
 
     /**

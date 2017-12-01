@@ -51,60 +51,64 @@ class BarbershopsTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->integer('id')
-            ->allowEmpty('id', 'create');
+        ->integer('id')
+        ->allowEmpty('id', 'create');
 
         $validator
-            ->scalar('name')
-            ->requirePresence('name', 'create')
-            ->notEmpty('name');
+        ->scalar('name')
+        ->requirePresence('name', 'create')
+        ->notEmpty('name');
 
         $validator
-            ->scalar('cnpj')
-            ->requirePresence('cnpj', 'create')
-            ->notEmpty('cnpj');
+        ->scalar('cnpj')
+        ->requirePresence('cnpj', 'create')
+        ->notEmpty('cnpj');
 
         $validator
-            ->scalar('cpf')
-            ->requirePresence('cpf', 'create')
-            ->notEmpty('cpf');
+        ->scalar('cpf')
+        ->requirePresence('cpf', 'create')
+        ->notEmpty('cpf');
 
         $validator
-            ->scalar('phone')
-            ->requirePresence('phone', 'create')
-            ->notEmpty('phone');
+        ->scalar('phone')
+        ->requirePresence('phone', 'create')
+        ->notEmpty('phone');
 
         $validator
-            ->scalar('cep')
-            ->requirePresence('cep', 'create')
-            ->notEmpty('cep');
+        ->scalar('cep')
+        ->requirePresence('cep', 'create')
+        ->notEmpty('cep');
 
         $validator
-            ->scalar('state')
-            ->requirePresence('state', 'create')
-            ->notEmpty('state');
+        ->scalar('state')
+        ->requirePresence('state', 'create')
+        ->notEmpty('state');
 
         $validator
-            ->scalar('city')
-            ->requirePresence('city', 'create')
-            ->notEmpty('city');
+        ->scalar('city')
+        ->requirePresence('city', 'create')
+        ->notEmpty('city');
 
         $validator
-            ->scalar('street')
-            ->requirePresence('street', 'create')
-            ->notEmpty('street');
+        ->scalar('street')
+        ->requirePresence('street', 'create')
+        ->notEmpty('street');
 
         $validator
-            ->integer('number')
-            ->requirePresence('number', 'create')
-            ->notEmpty('number');
+        ->integer('number')
+        ->requirePresence('number', 'create')
+        ->notEmpty('number');
 
         $validator
-            ->scalar('complement')
-            ->requirePresence('complement', 'create')
-            ->notEmpty('complement');
+        ->scalar('complement')
+        ->requirePresence('complement', 'create')
+        ->notEmpty('complement');
 
         return $validator;
+    }
+
+    public function isOwnedBy($params, $userId){
+        return $this->exists(['id' => $params, 'id_user' => $userId]);
     }
 
     /**

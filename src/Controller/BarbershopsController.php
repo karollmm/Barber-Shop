@@ -13,6 +13,24 @@ use App\Controller\AppController;
 class BarbershopsController extends AppController
 {
 
+
+
+
+
+    public function isAuthorized($user){
+        if ($this->request->getParam('action') === 'add') {
+            return true;
+        }
+        if (in_array($this->request->getParam('action'), ['edit', 'delete'])) {
+            $barbershopId = (int)$this->request->getParam('pass.0');
+            if ($this->Barbershops->isOwnedBy($barbershopId, $user['id'])) {
+                return true;
+            }
+        }
+        return parent::isAuthorized($user);
+    }
+
+
     /**
      * Index method
      *
