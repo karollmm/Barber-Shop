@@ -23,16 +23,12 @@
             <div class="card-body">
               <h1 class="mb-4 text-center">Adicionar Serviço</h1>
               <?= $this->Form->create($service, ['class'=>'form-group']) ?>
-              <?php
-              echo $this->Form->control('name', ['class' => 'form-control', 'label' => 'Nome:', 'placeholder' => 'Nome']);
-              echo("<br />\n");
-              echo $this->Form->control('price', ['class' => 'form-control', 'label' =>'Preço:', 'placeholder' => 'Preço']);
-              echo("<br />\n");
-              echo $this->Form->control('detail', ['class' => 'form-control', 'label' =>'Detalhe:', 'placeholder' => 'Detalhe']);
-              echo("<br />\n");
-              
-              
-              ?>       
+              <br>
+              <?= $this->Form->control('name', ['class' => 'form-control', 'label' => 'Nome:', 'placeholder' => 'Nome']); ?>
+              <br>
+              <?= $this->Form->control('price', ['class' => 'form-control', 'label' =>'Preço:', 'placeholder' => 'Preço']); ?>
+              <br>
+              <?= $this->Form->control('detail', ['class' => 'form-control', 'label' =>'Detalhe:', 'placeholder' => 'Detalhe']); ?>
               <br>
               <?= $this->Form->button('Salvar '.'<i class="fa fa-check" aria-hidden="true"></i>', ['class' => 'btn text-center text-white btn-block btn-success', 'type' => 'Submit']) ?>
               <?= $this->Form->end() ?>
