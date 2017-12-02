@@ -1,9 +1,8 @@
-
--- MySQL dump 10.13  Distrib 5.7.19, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 5.6.35, for osx10.9 (x86_64)
 --
--- Host: localhost    Database: barber_shop_db
+-- Host: localhost    Database: BarberShop
 -- ------------------------------------------------------
--- Server version	5.7.19-0ubuntu0.16.04.1
+-- Server version	5.6.35
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -15,8 +14,6 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
-
 
 --
 -- Table structure for table `barbershops`
@@ -35,16 +32,16 @@ CREATE TABLE `barbershops` (
   `state` varchar(20) NOT NULL,
   `city` varchar(20) NOT NULL,
   `street` varchar(30) NOT NULL,
-  `number` int(11) NOT NULL,
+  `number` int(10) NOT NULL,
   `complement` text NOT NULL,
   `service_id` int(10) unsigned NOT NULL,
-  `file_id_barbershops` int(10) unsigned,
+  `file_barbershops_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_services_barbershops` (`service_id`),
-  KEY `fk_file_barbershops` (`file_id_barbershops`),
-  CONSTRAINT `fk_services_barbershops` FOREIGN KEY (`service_id`) REFERENCES `services` (`id`),
-  CONSTRAINT `fk_file_barbershops` FOREIGN KEY (`file_id_barbershops`) REFERENCES `files_barbershops` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  KEY `fk_files_barbershops` (`file_barbershops_id`),
+  CONSTRAINT `fk_files_barbershops` FOREIGN KEY (`file_barbershops_id`) REFERENCES `files` (`id`),
+  CONSTRAINT `fk_services_barbershops` FOREIGN KEY (`service_id`) REFERENCES `services` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -54,6 +51,33 @@ CREATE TABLE `barbershops` (
 LOCK TABLES `barbershops` WRITE;
 /*!40000 ALTER TABLE `barbershops` DISABLE KEYS */;
 /*!40000 ALTER TABLE `barbershops` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `files`
+--
+
+DROP TABLE IF EXISTS `files`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `files` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `path` varchar(255) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL,
+  `status` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `files`
+--
+
+LOCK TABLES `files` WRITE;
+/*!40000 ALTER TABLE `files` DISABLE KEYS */;
+/*!40000 ALTER TABLE `files` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -69,15 +93,12 @@ CREATE TABLE `schedules` (
   `hour` time NOT NULL,
   `user_id` int(10) unsigned NOT NULL,
   `service_id` int(10) unsigned NOT NULL,
-  -- `barbershop_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `fk_users_schedules` (`user_id`),
   KEY `fk_services_schedules` (`service_id`),
-  -- KEY `fk_barbershops_schedules` (`barbershop_id`),
-  -- CONSTRAINT `fk_barbershops_schedules` FOREIGN KEY (`barbershop_id`) REFERENCES `barbershops` (`id`),
+  KEY `fk_users_schedules` (`user_id`),
   CONSTRAINT `fk_services_schedules` FOREIGN KEY (`service_id`) REFERENCES `services` (`id`),
   CONSTRAINT `fk_users_schedules` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -102,7 +123,7 @@ CREATE TABLE `services` (
   `price` varchar(10) NOT NULL,
   `detail` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -113,43 +134,6 @@ LOCK TABLES `services` WRITE;
 /*!40000 ALTER TABLE `services` DISABLE KEYS */;
 /*!40000 ALTER TABLE `services` ENABLE KEYS */;
 UNLOCK TABLES;
-
-
-
---
--- Table structure for table `files`
---
-
-DROP TABLE IF EXISTS `files_barbershops`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `files_barbershops` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `path` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '1 = Active, 0 = Inactive',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
-
-
-DROP TABLE IF EXISTS `files_users`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `files_users` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `path` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '1 = Active, 0 = Inactive',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
 
 --
 -- Table structure for table `users`
@@ -167,14 +151,16 @@ CREATE TABLE `users` (
   `date_of_birth` date NOT NULL,
   `username` varchar(60) NOT NULL,
   `password` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `file_users_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_files_users` (`file_users_id`),
+  CONSTRAINT `fk_files_users` FOREIGN KEY (`file_users_id`) REFERENCES `files` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `users`
 --
-
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
@@ -190,9 +176,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
-
-INSERT INTO `users` VALUES (0, 'Administrador', '11111111111', 'BarberShop@gmail.com', '81973066251', '1999-09-10', 'admin', '$2y$10$wype32BPfrL1B3o9v.c3m./Zver/2IwfXmGeHtvEMTA82hoXu3eWe');
-
-
-
--- Dump completed on 2017-11-01  8:52:25
+-- Dump completed on 2017-12-01 23:26:24
