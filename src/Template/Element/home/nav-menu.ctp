@@ -1,18 +1,28 @@
-  <!-- nav-menu -->
-  <nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top">
+ <?php $user = $this->request->session()->read('Auth.User'); ?>
 
-    <div class="container-fluid">
+ <!-- nav-menu -->
+ <nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top">
+
+  <div class="container-fluid">
 
 
-      <?= $this->Html->link(' <b> BarberShop </b> ', ['controller' => 'pages','action' => 'home'],
-      ['escape' => false, 'class' => 'navbar-brand']) ?>
+    <?= $this->Html->link(' <b> BarberShop </b> ', ['controller' => 'pages','action' => 'home'],
+    ['escape' => false, 'class' => 'navbar-brand']) ?>
 
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar2SupportedContent" aria-controls="navbar2SupportedContent" aria-expanded="false"
-      aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar2SupportedContent" aria-controls="navbar2SupportedContent" aria-expanded="false"
+    aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
 
-      <div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
+    <div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
 
-        <ul class="navbar-nav">
+      <ul class="navbar-nav">
+
+        <?php if($user): ?>
+
+          <li class="nav-item">
+            <?= $this->Html->link(__('<i class="fa fa-calendar" aria-hidden="true"></i>'. ' Agendar Serviço') ,['controller' => 'schedules', 'action' => 'add', $user['id']], ['escape' => false, 'class' => 'btn navbar-btn ml-2 text-white btn-dark'])?>
+          </li>
+
+        <?php else: ?>
 
           <li class="nav-item">
             <a class="btn navbar-btn ml-2 text-white btn-dark" href="#"><i class="fa fa-users" aria-hidden="true"></i> Quem Somos </a>
@@ -20,66 +30,71 @@
 
           <li class="nav-item">
 
+          <?php endif ?>
 
-            <?php $user = $this->request->session()->read('Auth.User'); ?>
-            <?php if($user): ?>
-              
-              <div class="btn-group">
 
-                <button class="btn btn-dark dropdown-toggle" data-toggle="dropdown"> 
-                  <?= $user['name'] ?> 
-                </button>
+          <?php if($user): ?>
 
-                  <div class="dropdown-menu">
+            <div class="btn-group">
 
-                    <?= $this->Html->link(__('<i class="fa fa-user-circle-o" aria-hidden="true"></i>'. ' Perfil') ,['controller' => 'Users', 'action' => 'view', $user['id']], ['escape' => false, 'class' => 'dropdown-item'])?>
+              <button class="btn btn-dark dropdown-toggle" data-toggle="dropdown"> 
+                <?= $user['name'] ?> 
+              </button>
 
-                    <div class="dropdown-divider"></div>
+              <div class="dropdown-menu">
 
-                    <?= $this->Html->link(__('<i class="fa fa-sign-out" aria-hidden="true"></i>' . ' Logout'),['controller' => 'Users', 'action' => 'logout'], ['escape' => false, 'class' => 'dropdown-item'])?>                   
+                <?= $this->Html->link(__('<i class="fa fa-user-circle-o" aria-hidden="true"></i>'. ' Perfil') ,['controller' => 'Users', 'action' => 'view', $user['id']], ['escape' => false, 'class' => 'dropdown-item'])?>
 
-                  </div>
+                <div class="dropdown-divider"></div>
 
-                </li>
+                <?= $this->Html->link(__('<i class="fa fa-pencil-square-o" aria-hidden="true"></i>'. ' Editar dados') ,['controller' => 'Users', 'action' => 'edit', $user['id']], ['escape' => false, 'class' => 'dropdown-item'])?>
 
-            <?php else: ?>
+                <div class="dropdown-divider"></div>
 
-              <div class="btn-group">
+                <?= $this->Html->link(__('<i class="fa fa-sign-out" aria-hidden="true"></i>' . ' Logout'),['controller' => 'Users', 'action' => 'logout'], ['escape' => false, 'class' => 'dropdown-item'])?>                   
 
-                <button class="btn btn-dark dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user-circle-o" aria-hidden="true"></i> 
-                  Cadastre-se </button>
+              </div>
 
-                  <div class="dropdown-menu">
+            </li>
 
-                    <?= $this->Html->link( '<i class="fa fa-user" aria-hidden="true"></i> ' . 'Sou cliente', ['controller' => 'users','action' => 'add'], 
-                    ['escape' => false, 'class' => 'dropdown-item']) ?>
+          <?php else: ?>
 
-                    <div class="dropdown-divider"></div>
+            <div class="btn-group">
 
-                    <a class="dropdown-item" href="#"><i class="fa fa-home" aria-hidden="true"></i> Tenho uma Barbearia </a>
+              <button class="btn btn-dark dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user-circle-o" aria-hidden="true"></i> 
+              Cadastre-se </button>
 
-                  </div>
+              <div class="dropdown-menu">
 
-                </li>
+                <?= $this->Html->link( '<i class="fa fa-user" aria-hidden="true"></i> ' . 'Sou cliente', ['controller' => 'users','action' => 'add'], 
+                ['escape' => false, 'class' => 'dropdown-item']) ?>
 
-                <li class="nav-item">
+                <div class="dropdown-divider"></div>
 
-                  <?= $this->Html->link( '<i class="fa fa-sign-in" aria-hidden="true"></i>' . ' Login ', ['controller' => 'users','action' => 'login'], 
-                  ['class' => 'btn navbar-btn ml-2 text-white btn-dark', 'escape' => false]) ?>
+                <a class="dropdown-item" href="#"><i class="fa fa-home" aria-hidden="true"></i> Tenho uma Barbearia </a>
 
-                </li>
+              </div>
 
-              <?php endif ?>
+            </li>
 
-            </ul>
+            <li class="nav-item">
 
-          </div>
+              <?= $this->Html->link( '<i class="fa fa-sign-in" aria-hidden="true"></i>' . ' Login ', ['controller' => 'users','action' => 'login'], 
+              ['class' => 'btn navbar-btn ml-2 text-white btn-dark', 'escape' => false]) ?>
 
-        </div>
+            </li>
+
+          <?php endif ?>
+
+        </ul>
 
       </div>
 
     </div>
 
-  </nav>
+  </div>
+
+</div>
+
+</nav>
 <!-- nav-menu -->
