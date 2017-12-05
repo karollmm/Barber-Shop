@@ -53,18 +53,13 @@ class SchedulesController extends AppController
      */
     public function view($id = null)
     {
-        if(is_null($id)){
-            
-            return $this->redirect(['action' => 'index']);
-        
-        }else{
-            $schedule = $this->Schedules->get($id, [
-                'contain' => ['Users', 'Services']
-            ]);
+        $schedule = $this->Schedules->get($id, [
+            'contain' => ['Users', 'Services']
+        ]);
 
-            $this->set('schedule', $schedule);
-            $this->set('_serialize', ['schedule']);
-        }
+        $this->set('schedule', $schedule);
+        $this->set('_serialize', ['schedule']);
+
     }
 
     /**
@@ -99,25 +94,22 @@ class SchedulesController extends AppController
      */
     public function edit($id = null)
     {
-        if(is_null($id)){
-            return $this->redirect(['action' => 'index']);
-        }
-        else{
-            $schedule = $this->Schedules->get($id, ['contain' => []]);
-            if ($this->request->is(['patch', 'post', 'put'])) {
-                $schedule = $this->Schedules->patchEntity($schedule, $this->request->getData());
-                if ($this->Schedules->save($schedule)) {
-                    $this->Flash->success(__('The schedule has been saved.'));
 
-                    return $this->redirect(['action' => 'index']);
-                }
-                $this->Flash->error(__('The schedule could not be saved. Please, try again.'));
+        $schedule = $this->Schedules->get($id, ['contain' => []]);
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            $schedule = $this->Schedules->patchEntity($schedule, $this->request->getData());
+            if ($this->Schedules->save($schedule)) {
+                $this->Flash->success(__('The schedule has been saved.'));
+
+                return $this->redirect(['action' => 'index']);
             }
-            $users = $this->Schedules->Users->find('list', ['limit' => 200]);
-            $services = $this->Schedules->Services->find('list', ['limit' => 200]);
-            $this->set(compact('schedule', 'users', 'services'));
-            $this->set('_serialize', ['schedule']);
+            $this->Flash->error(__('The schedule could not be saved. Please, try again.'));
         }
+        $users = $this->Schedules->Users->find('list', ['limit' => 200]);
+        $services = $this->Schedules->Services->find('list', ['limit' => 200]);
+        $this->set(compact('schedule', 'users', 'services'));
+        $this->set('_serialize', ['schedule']);
+
     }
 
     /**
@@ -129,21 +121,15 @@ class SchedulesController extends AppController
      */
     public function delete($id = null)
     {
-        if(is_null($id)){
-            return $this->redirect(['action' => 'index']);
-        }else{
-            if($this->request->is('get')){
-                return $this->redirect(['action' => 'index']);
-            }
-            $this->request->allowMethod(['post', 'delete']);
-            $schedule = $this->Schedules->get($id);
-            if ($this->Schedules->delete($schedule)) {
-                $this->Flash->success(__('The schedule has been deleted.'));
-            } else {
-                $this->Flash->error(__('The schedule could not be deleted. Please, try again.'));
-            }
 
-            return $this->redirect(['action' => 'index']);
+        $this->request->allowMethod(['post', 'delete']);
+        $schedule = $this->Schedules->get($id);
+        if ($this->Schedules->delete($schedule)) {
+            $this->Flash->success(__('The schedule has been deleted.'));
+        } else {
+            $this->Flash->error(__('The schedule could not be deleted. Please, try again.'));
         }
+
+        return $this->redirect(['action' => 'index']);
     }
 }
