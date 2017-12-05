@@ -29,13 +29,14 @@ class AppController extends Controller
 {
 
     public function beforeFilter(Event $event)
-    {   
-        parent::beforeFilter($event);
-        $this->Auth->allow(['login', 'display']);
+    {
+        $this->Auth->allow(['index', 'view', 'login', 'display']);
     }
 
+
     public function isAuthorized($user){
-        if (isset($user['username'])) {
+        // Admin can access every action
+        if (isset($user['username']) && $user['username'] === 'bac') {
             return true;
         }
         return false;
@@ -70,6 +71,12 @@ class AppController extends Controller
         ]
     ]);
 
+        /*
+         * Enable the following components for recommended CakePHP security settings.
+         * see https://book.cakephp.org/3.0/en/controllers/components/security.html
+         */
+        //$this->loadComponent('Security');
+        //$this->loadComponent('Csrf');
     }
 
     /**

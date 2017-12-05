@@ -1,3 +1,4 @@
+<?= $this->Flash->render();?>
 <div class="py-5 bg-light">
   <div class="container">
     <div class="row">
