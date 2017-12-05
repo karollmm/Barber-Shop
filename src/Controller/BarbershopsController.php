@@ -52,19 +52,12 @@ class BarbershopsController extends AppController
      */
     public function view($id = null)
     {
-        if(is_null($id)){
-            
-            return $this->redirect(['action' => 'index']);
-        
-        }else{
+        $barbershop = $this->Barbershops->get($id, [
+            'contain' => ['Services']
+        ]);
 
-            $barbershop = $this->Barbershops->get($id, [
-                'contain' => ['Services']
-            ]);
-
-            $this->set('barbershop', $barbershop);
-            $this->set('_serialize', ['barbershop']);
-        }
+        $this->set('barbershop', $barbershop);
+        $this->set('_serialize', ['barbershop']);
     }
 
     /**
@@ -98,28 +91,23 @@ class BarbershopsController extends AppController
      */
     public function edit($id = null)
     {
-        if(is_null($id)){
-            
-            return $this->redirect(['action' => 'index']);
-        
-        }else{
 
-            $barbershop = $this->Barbershops->get($id, [
-                'contain' => []
-            ]);
-            if ($this->request->is(['patch', 'post', 'put'])) {
-                $barbershop = $this->Barbershops->patchEntity($barbershop, $this->request->getData());
-                if ($this->Barbershops->save($barbershop)) {
-                    $this->Flash->success(__('The barbershop has been saved.'));
+        $barbershop = $this->Barbershops->get($id, [
+            'contain' => []
+        ]);
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            $barbershop = $this->Barbershops->patchEntity($barbershop, $this->request->getData());
+            if ($this->Barbershops->save($barbershop)) {
+                $this->Flash->success(__('The barbershop has been saved.'));
 
-                    return $this->redirect(['action' => 'index']);
-                }
-                $this->Flash->error(__('The barbershop could not be saved. Please, try again.'));
+                return $this->redirect(['action' => 'index']);
             }
-            $services = $this->Barbershops->Services->find('list', ['limit' => 200]);
-            $this->set(compact('barbershop', 'services'));
-            $this->set('_serialize', ['barbershop']);
+            $this->Flash->error(__('The barbershop could not be saved. Please, try again.'));
         }
+        $services = $this->Barbershops->Services->find('list', ['limit' => 200]);
+        $this->set(compact('barbershop', 'services'));
+        $this->set('_serialize', ['barbershop']);
+
     }
 
     /**
@@ -131,23 +119,16 @@ class BarbershopsController extends AppController
      */
     public function delete($id = null)
     {
-        if(is_null($id)){
-            
-            return $this->redirect(['action' => 'index']);
-        
-        }else{
-            if($this->request->is('get')){
-                return $this->redirect(['action' => 'index']);
-            }
-            $this->request->allowMethod(['post', 'delete']);
-            $barbershop = $this->Barbershops->get($id);
-            if ($this->Barbershops->delete($barbershop)) {
-                $this->Flash->success(__('The barbershop has been deleted.'));
-            } else {
-                $this->Flash->error(__('The barbershop could not be deleted. Please, try again.'));
-            }
 
-            return $this->redirect(['action' => 'index']);
+        $this->request->allowMethod(['post', 'delete']);
+        $barbershop = $this->Barbershops->get($id);
+        if ($this->Barbershops->delete($barbershop)) {
+            $this->Flash->success(__('The barbershop has been deleted.'));
+        } else {
+            $this->Flash->error(__('The barbershop could not be deleted. Please, try again.'));
         }
+
+        return $this->redirect(['action' => 'index']);
+        
     }
 }
