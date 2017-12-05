@@ -53,7 +53,6 @@ class UsersController extends AppController
     public function index()
     {
         $users = $this->paginate($this->Users);
-
         $this->set(compact('users'));
         $this->set('_serialize', ['users']);
     }
@@ -68,19 +67,13 @@ class UsersController extends AppController
     public function view($id = null)
     {
 
-        if(is_null($id)){
-            
-            return $this->redirect(['action' => 'index']);
-        
-        }else{
+        $user = $this->Users->get($id, [
+            'contain' => ['Schedules']
+        ]);
 
-            $user = $this->Users->get($id, [
-                'contain' => ['Schedules']
-            ]);
+        $this->set('user', $user);
+        $this->set('_serialize', ['user']);
 
-            $this->set('user', $user);
-            $this->set('_serialize', ['user']);
-        }
     }
 
     /**
@@ -114,27 +107,21 @@ class UsersController extends AppController
     public function edit($id = null)
     {
 
-        if(is_null($id)){
-            
-            return $this->redirect(['action' => 'index']);
-        
-        }else{
+        $user = $this->Users->get($id, [
+            'contain' => []
+        ]);
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            $user = $this->Users->patchEntity($user, $this->request->getData());
+            if ($this->Users->save($user)) {
+                $this->Flash->success(__('Usuário editado com sucesso.'));
 
-            $user = $this->Users->get($id, [
-                'contain' => []
-            ]);
-            if ($this->request->is(['patch', 'post', 'put'])) {
-                $user = $this->Users->patchEntity($user, $this->request->getData());
-                if ($this->Users->save($user)) {
-                    $this->Flash->success(__('Usuário editado com sucesso.'));
-
-                    return $this->redirect(['action' => 'index']);
-                }
-                $this->Flash->error(__('O usuário não pode ser editado. Por favor, tente novamente.'));
+                return $this->redirect(['action' => 'index']);
             }
-            $this->set(compact('user'));
-            $this->set('_serialize', ['user']);
+            $this->Flash->error(__('O usuário não pode ser editado. Por favor, tente novamente.'));
         }
+        $this->set(compact('user'));
+        $this->set('_serialize', ['user']);
+
     }
 
     /**
@@ -146,25 +133,20 @@ class UsersController extends AppController
      */
     public function delete($id = null)
     {
-        if(is_null($id)){
-        
-            return $this->redirect(['action' => 'index']);
-        
-        }else{
 
-            if($this->request->is('get')){
-                return $this->redirect(['action' => 'index']);
-            }
-            $this->request->allowMethod(['post', 'delete']);
-            $user = $this->Users->get($id);
-            if ($this->Users->delete($user)) {
-                $this->Flash->success(__('Usuário deletado com sucesso.'));
-            } else {
-                $this->Flash->error(__('O usuário não pode ser deletado. Por favor, tente novamente.'));
-            }
-
+        if($this->request->is('get')){
             return $this->redirect(['action' => 'index']);
         }
+        $this->request->allowMethod(['post', 'delete']);
+        $user = $this->Users->get($id);
+        if ($this->Users->delete($user)) {
+            $this->Flash->success(__('Usuário deletado com sucesso.'));
+        } else {
+            $this->Flash->error(__('O usuário não pode ser deletado. Por favor, tente novamente.'));
+        }
+
+        return $this->redirect(['action' => 'index']);
+
     }
 
 }
