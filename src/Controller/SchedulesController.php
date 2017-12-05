@@ -39,7 +39,6 @@ class SchedulesController extends AppController
             'contain' => ['Users', 'Services']
         ];
         $schedules = $this->paginate($this->Schedules);
-
         $this->set(compact('schedules'));
         $this->set('_serialize', ['schedules']);
     }
@@ -59,7 +58,6 @@ class SchedulesController extends AppController
 
         $this->set('schedule', $schedule);
         $this->set('_serialize', ['schedule']);
-
     }
 
     /**
@@ -94,7 +92,6 @@ class SchedulesController extends AppController
      */
     public function edit($id = null)
     {
-
         $schedule = $this->Schedules->get($id, ['contain' => []]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $schedule = $this->Schedules->patchEntity($schedule, $this->request->getData());
@@ -120,7 +117,6 @@ class SchedulesController extends AppController
      */
     public function delete($id = null)
     {
-
         $this->request->allowMethod(['post', 'delete']);
         $schedule = $this->Schedules->get($id);
         if ($this->Schedules->delete($schedule)) {
@@ -128,7 +124,6 @@ class SchedulesController extends AppController
         } else {
             $this->Flash->error(__('The schedule could not be deleted. Please, try again.'));
         }
-
         return $this->redirect(['action' => 'index']);
     }
 }

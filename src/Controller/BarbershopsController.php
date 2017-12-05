@@ -51,14 +51,12 @@ class BarbershopsController extends AppController
      */
     public function view($id = null)
     {
-
         $barbershop = $this->Barbershops->get($id, [
             'contain' => ['Services']
         ]);
 
         $this->set('barbershop', $barbershop);
         $this->set('_serialize', ['barbershop']);
-
     }
 
     /**
@@ -119,7 +117,6 @@ class BarbershopsController extends AppController
      */
     public function delete($id = null)
     {
-
         $this->request->allowMethod(['post', 'delete']);
         $barbershop = $this->Barbershops->get($id);
         if ($this->Barbershops->delete($barbershop)) {
@@ -127,8 +124,6 @@ class BarbershopsController extends AppController
         } else {
             $this->Flash->error(__('The barbershop could not be deleted. Please, try again.'));
         }
-
         return $this->redirect(['action' => 'index']);
-
     }
 }

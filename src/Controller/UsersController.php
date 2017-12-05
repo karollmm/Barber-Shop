@@ -15,16 +15,7 @@ use Cake\Event\Event;
 class UsersController extends AppController
 {
 
-    public function initialize(){
-        parent::initialize();
-    }
 
-    public function beforeFilter(Event $event)
-    {
-        parent::beforeFilter($event);
-        $this->Auth->allow(['add', 'logout']);
-        $this->Auth->deny(['edit', 'index','view','delete']);
-    }
 
     public function login()
     {
@@ -43,6 +34,12 @@ class UsersController extends AppController
 
     public function logout(){
         return $this->redirect($this->Auth->logout());
+    }
+
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
+        $this->Auth->allow(['add', 'logout']);
     }
 
     /**
@@ -66,14 +63,11 @@ class UsersController extends AppController
      */
     public function view($id = null)
     {
-
         $user = $this->Users->get($id, [
             'contain' => ['Schedules']
         ]);
-
         $this->set('user', $user);
         $this->set('_serialize', ['user']);
-
     }
 
     /**
@@ -106,7 +100,6 @@ class UsersController extends AppController
      */
     public function edit($id = null)
     {
-
         $user = $this->Users->get($id, [
             'contain' => []
         ]);
@@ -114,14 +107,12 @@ class UsersController extends AppController
             $user = $this->Users->patchEntity($user, $this->request->getData());
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('Usuário editado com sucesso.'));
-
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('O usuário não pode ser editado. Por favor, tente novamente.'));
         }
         $this->set(compact('user'));
         $this->set('_serialize', ['user']);
-
     }
 
     /**
@@ -133,10 +124,6 @@ class UsersController extends AppController
      */
     public function delete($id = null)
     {
-
-        if($this->request->is('get')){
-            return $this->redirect(['action' => 'index']);
-        }
         $this->request->allowMethod(['post', 'delete']);
         $user = $this->Users->get($id);
         if ($this->Users->delete($user)) {
@@ -146,7 +133,7 @@ class UsersController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
-
     }
+
 
 }

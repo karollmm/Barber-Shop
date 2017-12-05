@@ -45,7 +45,6 @@ class ServicesController extends AppController
      */
     public function view($id = null)
     {
-        
         $service = $this->Services->get($id, [
             'contain' => ['Barbershops', 'Schedules']
         ]);
@@ -84,9 +83,6 @@ class ServicesController extends AppController
      */
     public function edit($id = null)
     {
-
-
-
         $service = $this->Services->get($id, [
             'contain' => []
         ]);
@@ -101,7 +97,6 @@ class ServicesController extends AppController
         }
         $this->set(compact('service'));
         $this->set('_serialize', ['service']);
-        
     }
 
     /**
@@ -113,7 +108,6 @@ class ServicesController extends AppController
      */
     public function delete($id = null)
     {
-
         $this->request->allowMethod(['post', 'delete']);
         $service = $this->Services->get($id);
         if ($this->Services->delete($service)) {
@@ -123,6 +117,5 @@ class ServicesController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
-
     }
 }
