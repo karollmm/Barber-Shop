@@ -59,8 +59,8 @@ class SchedulesController extends AppController
 
         $this->set('schedule', $schedule);
         $this->set('_serialize', ['schedule']);
+
     }
-}
 
     /**
      * Add method
@@ -110,7 +110,6 @@ class SchedulesController extends AppController
         $this->set(compact('schedule', 'users', 'services'));
         $this->set('_serialize', ['schedule']);
     }
-}
 
     /**
      * Delete method
@@ -132,5 +131,4 @@ class SchedulesController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
-}
 }
