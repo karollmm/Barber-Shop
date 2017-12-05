@@ -23,7 +23,7 @@
         <div class="col-md-6">
           <div class="card bg-light text-dark">
             <div class="card-body">
-              <h1 class="mb-4 text-center">Adicionar Agendamento</h1>
+              <h1 class="mb-4 text-center">Agendamento</h1>
               <?= $this->Form->create($schedule) ?>
               <?= $this->Form->control('day',
 

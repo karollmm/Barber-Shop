@@ -49,12 +49,20 @@ class ServicesController extends AppController
      */
     public function view($id = null)
     {
-        $service = $this->Services->get($id, [
-            'contain' => ['Barbershops', 'Schedules']
-        ]);
+        
+        if(is_null($id)){
+            
+            return $this->redirect(['action' => 'display']);
+        
+        }else{
 
-        $this->set('service', $service);
-        $this->set('_serialize', ['service']);
+            $service = $this->Services->get($id, [
+                'contain' => ['Barbershops', 'Schedules']
+            ]);
+
+            $this->set('service', $service);
+            $this->set('_serialize', ['service']);
+        }
     }
 
     /**
@@ -87,20 +95,27 @@ class ServicesController extends AppController
      */
     public function edit($id = null)
     {
-        $service = $this->Services->get($id, [
-            'contain' => []
-        ]);
-        if ($this->request->is(['patch', 'post', 'put'])) {
-            $service = $this->Services->patchEntity($service, $this->request->getData());
-            if ($this->Services->save($service)) {
-                $this->Flash->success(__('The service has been saved.'));
+        if(is_null($id)){
+            
+            return $this->redirect(['action' => 'index']);
+        
+        }else{
 
-                return $this->redirect(['action' => 'index']);
+            $service = $this->Services->get($id, [
+                'contain' => []
+            ]);
+            if ($this->request->is(['patch', 'post', 'put'])) {
+                $service = $this->Services->patchEntity($service, $this->request->getData());
+                if ($this->Services->save($service)) {
+                    $this->Flash->success(__('The service has been saved.'));
+
+                    return $this->redirect(['action' => 'index']);
+                }
+                $this->Flash->error(__('The service could not be saved. Please, try again.'));
             }
-            $this->Flash->error(__('The service could not be saved. Please, try again.'));
+            $this->set(compact('service'));
+            $this->set('_serialize', ['service']);
         }
-        $this->set(compact('service'));
-        $this->set('_serialize', ['service']);
     }
 
     /**
@@ -112,14 +127,23 @@ class ServicesController extends AppController
      */
     public function delete($id = null)
     {
-        $this->request->allowMethod(['post', 'delete']);
-        $service = $this->Services->get($id);
-        if ($this->Services->delete($service)) {
-            $this->Flash->success(__('The service has been deleted.'));
-        } else {
-            $this->Flash->error(__('The service could not be deleted. Please, try again.'));
-        }
+        if(is_null($id)){
+            
+            return $this->redirect(['action' => 'index']);
+        
+        }else{
+            if($this->request->is('get')){
+                return $this->redirect(['action' => 'index']);
+            }
+            $this->request->allowMethod(['post', 'delete']);
+            $service = $this->Services->get($id);
+            if ($this->Services->delete($service)) {
+                $this->Flash->success(__('The service has been deleted.'));
+            } else {
+                $this->Flash->error(__('The service could not be deleted. Please, try again.'));
+            }
 
-        return $this->redirect(['action' => 'index']);
+            return $this->redirect(['action' => 'index']);
+        }   
     }
 }
