@@ -16,7 +16,8 @@
         <div class="w-50 mx-auto" id="book">
           <div class="card bg-light">
             <div class="bg-light p-3">
-              <img class="img-fluid d-block rounded-circle mx-auto" src="https://pingendo.github.io/templates/sections/assets/test_carlito.jpg"> </div>
+              <img class="img-fluid d-block rounded-circle mx-auto" src="<?=$user->file_users_id['path'].$user->file_users_id['name']?>"> 
+            </div>
             <div class="row">
               <div class="col-md-12">
                 <div class="card-body bg-light text-center">

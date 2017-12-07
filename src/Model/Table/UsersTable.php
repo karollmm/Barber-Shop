@@ -39,6 +39,10 @@ class UsersTable extends Table
         $this->hasMany('Schedules', [
             'foreignKey' => 'user_id'
         ]);
+
+        $this->belongsTo('Files')
+            ->setForeignKey('file_users_id') // nome da coluna da chave estrangeira
+            ->setProperty('file_users_id'); //nome da propriedade que será criada no modelo
     }
 
     /**
@@ -77,6 +81,11 @@ class UsersTable extends Table
             ->date('date_of_birth')
             ->requirePresence('date_of_birth', 'create')
             ->notEmpty('date_of_birth');
+
+        $validator
+            ->scalar('file_users_id')
+            ->requirePresence('file_users_id', 'create')
+            ->notEmpty('file_users_id');
             
         $validator
             ->scalar('username')

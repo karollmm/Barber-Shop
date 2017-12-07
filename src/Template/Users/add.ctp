@@ -9,7 +9,7 @@
             <h1 class="mb-4 text-center">Adicionar Usuário</h1>
             <span>Atenção, os campos marcados com o * asterísco são obrigatórios. </span>
             <br><br>
-            <?= $this->Form->create($user, ['class'=>'form-group']) ?>
+            <?= $this->Form->create($user, ['class'=>'form-group', 'type' => 'file']) ?>
             <br>
             <?= $this->Form->control('name', ['class' => 'form-control', 'label' => 'Nome: ', 'placeholder' => 'Nome']); ?>
             <br>
@@ -29,6 +29,8 @@
                 <?= $this->Form->control('username', ['class' => 'form-control', 'label' => 'Usuário:', 'placeholder' => 'Usuário']); ?>
                 <br>
                 <?= $this->Form->control('password', ['class' => 'form-control', 'label' => 'Senha:', 'placeholder' => 'Senha']); ?>
+                <br>
+                <?= $this->Form->control('file_users_id', ['class' => 'form-control', 'label' => 'Imagem:', 'type' => 'file']); ?>
                 <br>
                 <?= $this->Form->button('Salvar '.'<i class="fa fa-check" aria-hidden="true"></i>', ['class' => 'btn text-center text-white 
                 btn-block btn-success', 'type' => 'Submit']) ?>
