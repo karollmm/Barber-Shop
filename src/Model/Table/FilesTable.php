@@ -16,8 +16,6 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\File patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
  * @method \App\Model\Entity\File[] patchEntities($entities, array $data, array $options = [])
  * @method \App\Model\Entity\File findOrCreate($search, callable $callback = null, $options = [])
- *
- * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
 class FilesTable extends Table
 {
@@ -35,8 +33,6 @@ class FilesTable extends Table
         $this->setTable('files');
         $this->setDisplayField('name');
         $this->setPrimaryKey('id');
-
-        $this->addBehavior('Timestamp');
     }
 
     /**
@@ -48,32 +44,31 @@ class FilesTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->integer('id')
-            ->allowEmpty('id', 'create');
+        ->integer('id')
+        ->allowEmpty('id', 'create');
 
         $validator
-            ->scalar('name')
-            ->requirePresence('name', 'create')
-            ->notEmpty('name');
+        ->scalar('name')
+        ->allowEmpty('name');
 
         $validator
-            ->scalar('path')
-            ->requirePresence('path', 'create')
-            ->notEmpty('path');
+        ->scalar('path')
+        ->allowEmpty('path');
 
         return $validator;
     }
 
     public function uploadAndSaveFile($tmp_name, $path, $fileName){
-        $uploadFile = $path.$fileName;
-        if(move_uploaded_file($tmp_name,WWW_ROOT.$uploadFile)){
-            $uploadData = $this->newEntity();
-            $uploadData->name = $fileName;
-            $uploadData->path = $path;
-            if ($this->save($uploadData)) {
-                return $uploadData;
-            }
-        }
-        return false;
-    }
+       $uploadFile = $path.$fileName;
+       if(move_uploaded_file($tmp_name,WWW_ROOT.$uploadFile)){
+           $uploadData = $this->newEntity();
+           $uploadData->name = $fileName;
+           $uploadData->path = $path;
+           if ($this->save($uploadData)) {
+               return $uploadData;
+           }
+       }
+       return false;
+   }
+
 }

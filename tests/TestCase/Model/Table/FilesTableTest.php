@@ -1,22 +1,22 @@
 <?php
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\UsersTable;
+use App\Model\Table\FilesTable;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\UsersTable Test Case
+ * App\Model\Table\FilesTable Test Case
  */
-class UsersTableTest extends TestCase
+class FilesTableTest extends TestCase
 {
 
     /**
      * Test subject
      *
-     * @var \App\Model\Table\UsersTable
+     * @var \App\Model\Table\FilesTable
      */
-    public $Users;
+    public $Files;
 
     /**
      * Fixtures
@@ -24,10 +24,6 @@ class UsersTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'app.users',
-        'app.schedules',
-        'app.services',
-        'app.barbershops',
         'app.files'
     ];
 
@@ -39,8 +35,8 @@ class UsersTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('Users') ? [] : ['className' => UsersTable::class];
-        $this->Users = TableRegistry::get('Users', $config);
+        $config = TableRegistry::exists('Files') ? [] : ['className' => FilesTable::class];
+        $this->Files = TableRegistry::get('Files', $config);
     }
 
     /**
@@ -50,7 +46,7 @@ class UsersTableTest extends TestCase
      */
     public function tearDown()
     {
-        unset($this->Users);
+        unset($this->Files);
 
         parent::tearDown();
     }
@@ -76,11 +72,11 @@ class UsersTableTest extends TestCase
     }
 
     /**
-     * Test buildRules method
+     * Test uploadAndSaveFile method
      *
      * @return void
      */
-    public function testBuildRules()
+    public function testUploadAndSaveFile()
     {
         $this->markTestIncomplete('Not implemented yet.');
     }
