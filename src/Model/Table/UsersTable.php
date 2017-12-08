@@ -9,6 +9,7 @@ use Cake\Validation\Validator;
 /**
  * Users Model
  *
+ * @property \App\Model\Table\FilesTable|\Cake\ORM\Association\BelongsTo $Files
  * @property \App\Model\Table\SchedulesTable|\Cake\ORM\Association\HasMany $Schedules
  *
  * @method \App\Model\Entity\User get($primaryKey, $options = [])
@@ -36,13 +37,13 @@ class UsersTable extends Table
         $this->setDisplayField('name');
         $this->setPrimaryKey('id');
 
-        $this->hasMany('Schedules', [
-            'foreignKey' => 'user_id'
-        ]);
-
         $this->belongsTo('Files')
             ->setForeignKey('file_users_id') // nome da coluna da chave estrangeira
             ->setProperty('file_users_id'); //nome da propriedade que será criada no modelo
+
+        $this->hasMany('Schedules', [
+            'foreignKey' => 'user_id'
+        ]);
     }
 
     /**
@@ -83,10 +84,9 @@ class UsersTable extends Table
             ->notEmpty('date_of_birth');
 
         $validator
-            ->scalar('file_users_id')
-            ->requirePresence('file_users_id', 'create')
-            ->notEmpty('file_users_id');
-            
+            ->date('date_of_birth')
+            ->allowEmpty('file_users_id');
+
         $validator
             ->scalar('username')
             ->requirePresence('username', 'create')
@@ -111,6 +111,7 @@ class UsersTable extends Table
     {
         $rules->add($rules->isUnique(['email']));
         $rules->add($rules->isUnique(['username']));
+        $rules->add($rules->existsIn(['file_users_id'], 'Files'));
 
         return $rules;
     }

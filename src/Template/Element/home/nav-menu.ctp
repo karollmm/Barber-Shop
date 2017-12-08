@@ -19,7 +19,7 @@
         <?php if($user): ?>
 
           <li class="nav-item">
-            <?= $this->Html->link(__('<i class="fa fa-calendar" aria-hidden="true"></i>'. ' Agendar Serviço') ,['controller' => 'schedules', 'action' => 'add', $user['id']], ['escape' => false, 'class' => 'btn navbar-btn ml-2 text-white btn-dark'])?>
+            <?= $this->Html->link(__('<i class="fa fa-calendar" aria-hidden="true"></i>'. ' Agendar Serviço') ,['controller' => 'schedules', 'action' => 'add', $user['id']], ['escape' => false, 'class' => 'btn navbar-btn ml-3 text-white btn-dark'])?>
           </li>
 
         <?php else: ?>
@@ -37,7 +37,7 @@
 
             <div class="btn-group">
 
-              <button class="btn btn-dark dropdown-toggle" data-toggle="dropdown"> 
+              <button class="btn navbar-btn ml-3 btn-dark dropdown-toggle" data-toggle="dropdown"> 
                 <?= $user['name'] ?> 
               </button>
 

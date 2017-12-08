@@ -62,8 +62,8 @@ DROP TABLE IF EXISTS `files`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `files` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `path` varchar(255) NOT NULL,
+  `name` varchar(255),
+  `path` varchar(255),
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -148,7 +148,7 @@ CREATE TABLE `users` (
   `date_of_birth` date NOT NULL,
   `username` varchar(60) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `file_users_id` int(10) unsigned NOT NULL,
+  `file_users_id` int(10) unsigned,
   PRIMARY KEY (`id`),
   KEY `fk_files_users` (`file_users_id`),
   CONSTRAINT `fk_files_users` FOREIGN KEY (`file_users_id`) REFERENCES `files` (`id`)

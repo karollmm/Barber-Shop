@@ -13,10 +13,10 @@ use Cake\Auth\DefaultPasswordHasher;
  * @property string $email
  * @property string $phone
  * @property \Cake\I18n\FrozenDate $date_of_birth
- * @property string $age
  * @property string $username
  * @property string $password
  *
+ * @property \App\Model\Entity\File $file_users_id
  * @property \App\Model\Entity\Schedule[] $schedules
  */
 class User extends Entity
@@ -39,13 +39,9 @@ class User extends Entity
         'date_of_birth' => true,
         'username' => true,
         'password' => true,
+        'file_users_id' => true,
         'schedules' => true
     ];
-
-
-    protected function _setPassword($password){
-        return (new DefaultPasswordHasher)->hash($password);
-    }
 
     /**
      * Fields that are excluded from JSON versions of the entity.
@@ -55,4 +51,8 @@ class User extends Entity
     protected $_hidden = [
         'password'
     ];
+
+    protected function _setPassword($password){
+        return (new DefaultPasswordHasher)->hash($password);
+    }
 }

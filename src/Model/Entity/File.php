@@ -9,8 +9,6 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property string $name
  * @property string $path
- * @property \Cake\I18n\FrozenTime $created
- * @property \Cake\I18n\FrozenTime $modified
  */
 class File extends Entity
 {
@@ -26,8 +24,6 @@ class File extends Entity
      */
     protected $_accessible = [
         'name' => true,
-        'path' => true,
-        'created' => true,
-        'modified' => true
+        'path' => true
     ];
 }
