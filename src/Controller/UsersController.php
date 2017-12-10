@@ -90,22 +90,30 @@ class UsersController extends AppController
         $user = $this->Users->newEntity();
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
-            
-            if(isset($this->request->data['file_users_id']['name'])){
+            if($this->request->data['file_users_id']['name'] != ''){
                 $extension = pathinfo($this->request->data['file_users_id']['name'], PATHINFO_EXTENSION);
                 $image = $this->Files->uploadAndSaveFile($this->request->data['file_users_id']['tmp_name'],'/uploads/','perfil_'.uniqid(rand(), true).'.'.$extension);
                 if($image){
                     $user->file_users_id = $image->id;
+                    if ($this->Users->save($user)) {
+                        $this->Flash->success(__('Usuário adicionado com sucesso.'));
+                        return $this->redirect(['controller' => 'pages','action' => 'home']);
+                    }else{
+                        $this->Flash->error(__('O usuário não pode ser adicionado. Por favor, tente novamente.'));
+                    }
                 }else{
                     $this->Flash->error(__('Problema ao carregar a image de perfil'));
                 }
-            }
-            if ($this->Users->save($user)) {
-                $this->Flash->success(__('Usuário adicionado com sucesso.'));
-                return $this->redirect(['controller' => 'pages','action' => 'home']);
+
             }else{
-                $this->Flash->error(__('O usuário não pode ser adicionado. Por favor, tente novamente.'));
+                if ($this->Users->save($user)) {
+                    $this->Flash->success(__('Usuário adicionado com sucesso.'));
+                    return $this->redirect(['controller' => 'pages','action' => 'home']);
+                }else{
+                    $this->Flash->error(__('O usuário não pode ser adicionado. Por favor, tente novamente.'));
+                }
             }
+
         }
         $this->set(compact('user'));
         $this->set('_serialize', ['user']);

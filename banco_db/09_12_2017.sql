@@ -65,7 +65,7 @@ CREATE TABLE `files` (
   `name` varchar(255) DEFAULT NULL,
   `path` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -74,6 +74,7 @@ CREATE TABLE `files` (
 
 LOCK TABLES `files` WRITE;
 /*!40000 ALTER TABLE `files` DISABLE KEYS */;
+INSERT INTO `files` VALUES (1,'',NULL),(2,'',NULL);
 /*!40000 ALTER TABLE `files` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -152,7 +153,7 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`),
   KEY `fk_files_users` (`file_users_id`),
   CONSTRAINT `fk_files_users` FOREIGN KEY (`file_users_id`) REFERENCES `files` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -161,6 +162,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (2,'Administrador','11111111111','gabriel-silva_2011@hotmail.com','81973066251','1994-09-10','admin','$2y$10$55vJ6FnAr5cH3ECK/EznK.e1hLUlhWsPegyb9wQ0QQIzUFPuqRbFS',2);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -173,4 +175,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-01 23:26:24
+-- Dump completed on 2017-12-10  0:57:26
