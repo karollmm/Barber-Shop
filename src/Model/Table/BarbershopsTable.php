@@ -106,6 +106,10 @@ class BarbershopsTable extends Table
         return $validator;
     }
 
+    public function isOwnedBy($params, $userId){
+        return $this->exists(['id' => $params, 'id_user' => $userId]);
+    }
+
     /**
      * Returns a rules checker object that will be used for validating
      * application integrity.
