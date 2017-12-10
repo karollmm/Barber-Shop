@@ -14,8 +14,8 @@
             )
         ?></li>
         <li><?= $this->Html->link(__('List Barbershops'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Services'), ['controller' => 'Services', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Service'), ['controller' => 'Services', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Files'), ['controller' => 'Files', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New File'), ['controller' => 'Files', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="barbershops form large-9 medium-8 columns content">
@@ -33,7 +33,7 @@
             echo $this->Form->control('street');
             echo $this->Form->control('number');
             echo $this->Form->control('complement');
-            echo $this->Form->control('service_id', ['options' => $services]);
+            echo $this->Form->control('file_barbershops_id', ['options' => $files, 'empty' => true]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

@@ -4,7 +4,7 @@
  * @var \App\Model\Entity\Service $service
  */
 ?>
-<!-- <nav class="large-3 medium-4 columns" id="actions-sidebar">
+<nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('List Services'), ['action' => 'index']) ?></li>
@@ -13,28 +13,18 @@
         <li><?= $this->Html->link(__('List Schedules'), ['controller' => 'Schedules', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Schedule'), ['controller' => 'Schedules', 'action' => 'add']) ?></li>
     </ul>
-  </nav> -->
-  <div class="py-5 bg-light">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3"> </div>
-        <div class="col-md-6">
-          <div class="card bg-light text-dark">
-            <div class="card-body">
-              <h1 class="mb-4 text-center">Adicionar Serviço</h1>
-              <?= $this->Form->create($service, ['class'=>'form-group']) ?>
-              <br>
-              <?= $this->Form->control('name', ['class' => 'form-control', 'label' => 'Nome:', 'placeholder' => 'Nome']); ?>
-              <br>
-              <?= $this->Form->control('price', ['class' => 'form-control', 'label' =>'Preço:', 'placeholder' => 'Preço']); ?>
-              <br>
-              <?= $this->Form->control('detail', ['class' => 'form-control', 'label' =>'Detalhe:', 'placeholder' => 'Detalhe']); ?>
-              <br>
-              <?= $this->Form->button('Salvar '.'<i class="fa fa-check" aria-hidden="true"></i>', ['class' => 'btn text-center text-white btn-block btn-success', 'type' => 'Submit']) ?>
-              <?= $this->Form->end() ?>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+</nav>
+<div class="services form large-9 medium-8 columns content">
+    <?= $this->Form->create($service) ?>
+    <fieldset>
+        <legend><?= __('Add Service') ?></legend>
+        <?php
+            echo $this->Form->control('name');
+            echo $this->Form->control('price');
+            echo $this->Form->control('detail');
+            echo $this->Form->control('barbershops_id', ['options' => $barbershops]);
+        ?>
+    </fieldset>
+    <?= $this->Form->button(__('Submit')) ?>
+    <?= $this->Form->end() ?>
+</div>

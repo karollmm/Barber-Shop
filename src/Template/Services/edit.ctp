@@ -28,6 +28,7 @@
             echo $this->Form->control('name');
             echo $this->Form->control('price');
             echo $this->Form->control('detail');
+            echo $this->Form->control('barbershops_id', ['options' => $barbershops]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

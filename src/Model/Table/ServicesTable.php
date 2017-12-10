@@ -9,7 +9,7 @@ use Cake\Validation\Validator;
 /**
  * Services Model
  *
- * @property \App\Model\Table\BarbershopsTable|\Cake\ORM\Association\HasMany $Barbershops
+ * @property \App\Model\Table\BarbershopsTable|\Cake\ORM\Association\BelongsTo $Barbershops
  * @property \App\Model\Table\SchedulesTable|\Cake\ORM\Association\HasMany $Schedules
  *
  * @method \App\Model\Entity\Service get($primaryKey, $options = [])
@@ -37,16 +37,13 @@ class ServicesTable extends Table
         $this->setDisplayField('name');
         $this->setPrimaryKey('id');
 
-        $this->hasMany('Barbershops', [
-            'foreignKey' => 'service_id'
+        $this->belongsTo('Barbershops', [
+            'foreignKey' => 'barbershops_id',
+            'joinType' => 'INNER'
         ]);
         $this->hasMany('Schedules', [
             'foreignKey' => 'service_id'
         ]);
-    }
-
-    public function isOwnedBy($params, $userId){
-        return $this->exists(['id' => $params, 'id_user' => $userId]);
     }
 
     /**
@@ -58,24 +55,38 @@ class ServicesTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-        ->integer('id')
-        ->allowEmpty('id', 'create');
+            ->integer('id')
+            ->allowEmpty('id', 'create');
 
         $validator
-        ->scalar('name')
-        ->requirePresence('name', 'create')
-        ->notEmpty('name');
+            ->scalar('name')
+            ->requirePresence('name', 'create')
+            ->notEmpty('name');
 
         $validator
-        ->scalar('price')
-        ->requirePresence('price', 'create')
-        ->notEmpty('price');
+            ->scalar('price')
+            ->requirePresence('price', 'create')
+            ->notEmpty('price');
 
         $validator
-        ->scalar('detail')
-        ->requirePresence('detail', 'create')
-        ->notEmpty('detail');
+            ->scalar('detail')
+            ->requirePresence('detail', 'create')
+            ->notEmpty('detail');
 
         return $validator;
+    }
+
+    /**
+     * Returns a rules checker object that will be used for validating
+     * application integrity.
+     *
+     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
+     * @return \Cake\ORM\RulesChecker
+     */
+    public function buildRules(RulesChecker $rules)
+    {
+        $rules->add($rules->existsIn(['barbershops_id'], 'Barbershops'));
+
+        return $rules;
     }
 }
