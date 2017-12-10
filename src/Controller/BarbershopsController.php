@@ -20,9 +20,14 @@ class BarbershopsController extends AppController
             $barbershopId = (int)$this->request->getParam('pass.0');
             if ($this->Barbershops->isOwnedBy($barbershopId, $user['id'])) {
                return true;
-            }
-        }
-        return parent::isAuthorized($user);
+           }
+       }
+       return parent::isAuthorized($user);
+   }
+
+   public function initialize(){
+        parent::initialize();
+        $this->loadModel('Files');
     }
 
     /**
@@ -32,7 +37,11 @@ class BarbershopsController extends AppController
      */
     public function index()
     {
-        $barbershops = $this->paginate($this->Barbershops);
+        $this->paginate = [
+            'contain' => ['Files']
+        ];
+
+        $barbershop = $this->paginate($this->Barbershops);
 
         $this->set(compact('barbershops'));
         $this->set('_serialize', ['barbershops']);
@@ -48,7 +57,7 @@ class BarbershopsController extends AppController
     public function view($id = null)
     {
         $barbershop = $this->Barbershops->get($id, [
-            'contain' => []
+            'contain' => ['Files']
         ]);
 
         $this->set('barbershop', $barbershop);
@@ -65,12 +74,40 @@ class BarbershopsController extends AppController
         $barbershop = $this->Barbershops->newEntity();
         if ($this->request->is('post')) {
             $barbershop = $this->Barbershops->patchEntity($barbershop, $this->request->getData());
-            if ($this->Barbershops->save($barbershop)) {
-                $this->Flash->success(__('The barbershop has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+            if(!empty($this->request->data['file_barbershops_id']['name'])){
+                $extension = pathinfo($this->request->data['file_barbershops_id']['name'], PATHINFO_EXTENSION);
+                $image = $this->Files->uploadAndSaveFile($this->request->data['file_barbershops_id']['tmp_name'],'/uploads/','barbearia_'.uniqid(rand(), true).'.'.$extension);
+
+                if($image){
+                    $barbershop->file_barbershops_id = $image->id;
+
+                    if ($this->Barbershops->save($barbershop)) {
+                        $this->Flash->success(__('Barbearia adicionada com sucesso.'));
+                        return $this->redirect(['controller' => 'pages','action' => 'home']);
+
+                    }else{
+                        $this->Flash->error(__('A barbearia não pode ser adicionada. Por favor, tente novamente.'));
+
+                    }
+
+                }else{
+                    $this->Flash->error(__('Problema ao carregar a image de perfil'));
+
+                }
+
+            }else{
+                if ($this->Barbershops->save($barbershop)) {
+                    $this->Flash->success(__('Barbearia adicionada com sucesso.'));
+                    return $this->redirect(['controller' => 'pages','action' => 'home']);
+
+                }else{
+                    $this->Flash->error(__('A barbearia não pode ser adicionada. Por favor, tente novamente.'));
+
+                }
+
             }
-            $this->Flash->error(__('The barbershop could not be saved. Please, try again.'));
+
         }
         $this->set(compact('barbershop'));
         $this->set('_serialize', ['barbershop']);

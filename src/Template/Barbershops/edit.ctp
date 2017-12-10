@@ -1,12 +1,6 @@
 <!-- <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $barbershop->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $barbershop->id)]
-            )
-        ?></li>
         <li><?= $this->Html->link(__('List Barbershops'), ['action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('List Files'), ['controller' => 'Files', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New File'), ['controller' => 'Files', 'action' => 'add']) ?></li>
@@ -20,7 +14,7 @@
         <div class="col-md-6">
             <div class="card bg-light text-dark">
                 <div class="card-body">
-                    <h1 class="mb-4 text-center">Editar Barbearias</h1>
+                    <h1 class="mb-4 text-center">Adicionar Barbearias</h1>
                     <span>Atenção, os campos marcados com o * asterísco são obrigatórios. </span>
                     <br>
                     <?= $this->Form->create($barbershop, ['class'=>'form-group', 'type' => 'file']) ?>
