@@ -22,6 +22,7 @@
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('price') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('barbershops_id') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -31,6 +32,7 @@
                 <td><?= $this->Number->format($service->id) ?></td>
                 <td><?= h($service->name) ?></td>
                 <td><?= h($service->price) ?></td>
+                <td><?= $service->has('barbershop') ? $this->Html->link($service->barbershop->name, ['controller' => 'Barbershops', 'action' => 'view', $service->barbershop->id]) : '' ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $service->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $service->id]) ?>

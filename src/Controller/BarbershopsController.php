@@ -13,20 +13,6 @@ use App\Controller\AppController;
 class BarbershopsController extends AppController
 {
 
-    public function isAuthorized($user){
-        if ($this->request->getParam('action') === 'add') {
-            return true;
-        }
-        if (in_array($this->request->getParam('action'), ['edit', 'delete'])) {
-            $barbershopId = (int)$this->request->getParam('pass.0');
-            if ($this->Barbershops->isOwnedBy($barbershopId, $user['id'])) {
-                return true;
-            }
-        }
-        return parent::isAuthorized($user);
-    }
-
-
     /**
      * Index method
      *
@@ -35,7 +21,7 @@ class BarbershopsController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Services']
+            'contain' => ['Files']
         ];
         $barbershops = $this->paginate($this->Barbershops);
 
@@ -53,7 +39,7 @@ class BarbershopsController extends AppController
     public function view($id = null)
     {
         $barbershop = $this->Barbershops->get($id, [
-            'contain' => ['Services']
+            'contain' => ['Files']
         ]);
 
         $this->set('barbershop', $barbershop);
@@ -77,8 +63,8 @@ class BarbershopsController extends AppController
             }
             $this->Flash->error(__('The barbershop could not be saved. Please, try again.'));
         }
-        $services = $this->Barbershops->Services->find('list', ['limit' => 200]);
-        $this->set(compact('barbershop', 'services'));
+        $files = $this->Barbershops->Files->find('list', ['limit' => 200]);
+        $this->set(compact('barbershop', 'files'));
         $this->set('_serialize', ['barbershop']);
     }
 
@@ -91,7 +77,6 @@ class BarbershopsController extends AppController
      */
     public function edit($id = null)
     {
-
         $barbershop = $this->Barbershops->get($id, [
             'contain' => []
         ]);
@@ -104,10 +89,9 @@ class BarbershopsController extends AppController
             }
             $this->Flash->error(__('The barbershop could not be saved. Please, try again.'));
         }
-        $services = $this->Barbershops->Services->find('list', ['limit' => 200]);
-        $this->set(compact('barbershop', 'services'));
+        $files = $this->Barbershops->Files->find('list', ['limit' => 200]);
+        $this->set(compact('barbershop', 'files'));
         $this->set('_serialize', ['barbershop']);
-
     }
 
     /**
@@ -119,7 +103,6 @@ class BarbershopsController extends AppController
      */
     public function delete($id = null)
     {
-
         $this->request->allowMethod(['post', 'delete']);
         $barbershop = $this->Barbershops->get($id);
         if ($this->Barbershops->delete($barbershop)) {
@@ -129,6 +112,5 @@ class BarbershopsController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
-        
     }
 }

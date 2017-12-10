@@ -26,7 +26,9 @@ class ServicesTableTest extends TestCase
     public $fixtures = [
         'app.services',
         'app.barbershops',
-        'app.schedules'
+        'app.files',
+        'app.schedules',
+        'app.users'
     ];
 
     /**
@@ -69,6 +71,16 @@ class ServicesTableTest extends TestCase
      * @return void
      */
     public function testValidationDefault()
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
+     * Test buildRules method
+     *
+     * @return void
+     */
+    public function testBuildRules()
     {
         $this->markTestIncomplete('Not implemented yet.');
     }

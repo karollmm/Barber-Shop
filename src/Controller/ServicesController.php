@@ -13,20 +13,6 @@ use App\Controller\AppController;
 class ServicesController extends AppController
 {
 
-
-    public function isAuthorized($user){
-        if ($this->request->getParam('action') === 'add') {
-            return true;
-        }
-        if (in_array($this->request->getParam('action'), ['edit', 'delete'])) {
-            $servicesId = (int) $this->request->getParam('pass.0');
-            if ($this->Services->isOwnedBy($servicesId, $user['id'])) {
-                return true;
-            }
-        }
-        return parent::isAuthorized($user);
-    }
-
     /**
      * Index method
      *
@@ -34,6 +20,9 @@ class ServicesController extends AppController
      */
     public function index()
     {
+        $this->paginate = [
+            'contain' => ['Barbershops']
+        ];
         $services = $this->paginate($this->Services);
 
         $this->set(compact('services'));
@@ -74,7 +63,8 @@ class ServicesController extends AppController
             }
             $this->Flash->error(__('The service could not be saved. Please, try again.'));
         }
-        $this->set(compact('service'));
+        $barbershops = $this->Services->Barbershops->find('list', ['limit' => 200]);
+        $this->set(compact('service', 'barbershops'));
         $this->set('_serialize', ['service']);
     }
 
@@ -99,7 +89,8 @@ class ServicesController extends AppController
             }
             $this->Flash->error(__('The service could not be saved. Please, try again.'));
         }
-        $this->set(compact('service'));
+        $barbershops = $this->Services->Barbershops->find('list', ['limit' => 200]);
+        $this->set(compact('service', 'barbershops'));
         $this->set('_serialize', ['service']);
     }
 

@@ -10,8 +10,9 @@ use Cake\ORM\Entity;
  * @property string $name
  * @property string $price
  * @property string $detail
+ * @property int $barbershops_id
  *
- * @property \App\Model\Entity\Barbershop[] $barbershops
+ * @property \App\Model\Entity\Barbershop $barbershop
  * @property \App\Model\Entity\Schedule[] $schedules
  */
 class Service extends Entity
@@ -30,7 +31,8 @@ class Service extends Entity
         'name' => true,
         'price' => true,
         'detail' => true,
-        'barbershops' => true,
+        'barbershops_id' => true,
+        'barbershop' => true,
         'schedules' => true
     ];
 }

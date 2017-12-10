@@ -11,8 +11,8 @@
         <li><?= $this->Form->postLink(__('Delete Barbershop'), ['action' => 'delete', $barbershop->id], ['confirm' => __('Are you sure you want to delete # {0}?', $barbershop->id)]) ?> </li>
         <li><?= $this->Html->link(__('List Barbershops'), ['action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Barbershop'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Services'), ['controller' => 'Services', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Service'), ['controller' => 'Services', 'action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List Files'), ['controller' => 'Files', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New File'), ['controller' => 'Files', 'action' => 'add']) ?> </li>
     </ul>
 </nav>
 <div class="barbershops view large-9 medium-8 columns content">
@@ -51,8 +51,8 @@
             <td><?= h($barbershop->street) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Service') ?></th>
-            <td><?= $barbershop->has('service') ? $this->Html->link($barbershop->service->name, ['controller' => 'Services', 'action' => 'view', $barbershop->service->id]) : '' ?></td>
+            <th scope="row"><?= __('File') ?></th>
+            <td><?= $barbershop->has('file') ? $this->Html->link($barbershop->file->name, ['controller' => 'Files', 'action' => 'view', $barbershop->file->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Id') ?></th>

@@ -29,6 +29,10 @@
             <td><?= h($service->price) ?></td>
         </tr>
         <tr>
+            <th scope="row"><?= __('Barbershop') ?></th>
+            <td><?= $service->has('barbershop') ? $this->Html->link($service->barbershop->name, ['controller' => 'Barbershops', 'action' => 'view', $service->barbershop->id]) : '' ?></td>
+        </tr>
+        <tr>
             <th scope="row"><?= __('Id') ?></th>
             <td><?= $this->Number->format($service->id) ?></td>
         </tr>
@@ -36,49 +40,6 @@
     <div class="row">
         <h4><?= __('Detail') ?></h4>
         <?= $this->Text->autoParagraph(h($service->detail)); ?>
-    </div>
-    <div class="related">
-        <h4><?= __('Related Barbershops') ?></h4>
-        <?php if (!empty($service->barbershops)): ?>
-        <table cellpadding="0" cellspacing="0">
-            <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Name') ?></th>
-                <th scope="col"><?= __('Cnpj') ?></th>
-                <th scope="col"><?= __('Cpf') ?></th>
-                <th scope="col"><?= __('Phone') ?></th>
-                <th scope="col"><?= __('Cep') ?></th>
-                <th scope="col"><?= __('State') ?></th>
-                <th scope="col"><?= __('City') ?></th>
-                <th scope="col"><?= __('Street') ?></th>
-                <th scope="col"><?= __('Number') ?></th>
-                <th scope="col"><?= __('Complement') ?></th>
-                <th scope="col"><?= __('Service Id') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
-            </tr>
-            <?php foreach ($service->barbershops as $barbershops): ?>
-            <tr>
-                <td><?= h($barbershops->id) ?></td>
-                <td><?= h($barbershops->name) ?></td>
-                <td><?= h($barbershops->cnpj) ?></td>
-                <td><?= h($barbershops->cpf) ?></td>
-                <td><?= h($barbershops->phone) ?></td>
-                <td><?= h($barbershops->cep) ?></td>
-                <td><?= h($barbershops->state) ?></td>
-                <td><?= h($barbershops->city) ?></td>
-                <td><?= h($barbershops->street) ?></td>
-                <td><?= h($barbershops->number) ?></td>
-                <td><?= h($barbershops->complement) ?></td>
-                <td><?= h($barbershops->service_id) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Barbershops', 'action' => 'view', $barbershops->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Barbershops', 'action' => 'edit', $barbershops->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Barbershops', 'action' => 'delete', $barbershops->id], ['confirm' => __('Are you sure you want to delete # {0}?', $barbershops->id)]) ?>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-        </table>
-        <?php endif; ?>
     </div>
     <div class="related">
         <h4><?= __('Related Schedules') ?></h4>

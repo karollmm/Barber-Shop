@@ -18,7 +18,9 @@ class ServicesControllerTest extends IntegrationTestCase
     public $fixtures = [
         'app.services',
         'app.barbershops',
-        'app.schedules'
+        'app.files',
+        'app.schedules',
+        'app.users'
     ];
 
     /**

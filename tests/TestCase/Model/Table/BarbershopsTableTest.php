@@ -25,9 +25,7 @@ class BarbershopsTableTest extends TestCase
      */
     public $fixtures = [
         'app.barbershops',
-        'app.services',
-        'app.schedules',
-        'app.users'
+        'app.files'
     ];
 
     /**
