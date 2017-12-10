@@ -40,7 +40,7 @@ $cakeTitle = 'BarberShop'; //titulo da pagina home
 <body>
 
 <!-- nav-menu -->
-<?= $this->element('home/nav-menu') ?>
+<?= $this->element('Home/nav-menu') ?>
 <!-- nav-menu -->
 
 <?= $this->Flash->render() ?>
@@ -52,7 +52,7 @@ $cakeTitle = 'BarberShop'; //titulo da pagina home
 
 
 <!-- footer -->
-<?= $this->element('home/footer') ?>
+<?= $this->element('Home/footer') ?>
 <!-- footer -->
 
 </body>
