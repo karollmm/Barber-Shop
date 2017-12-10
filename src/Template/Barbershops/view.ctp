@@ -47,8 +47,8 @@
             <td><?= h($barbershop->street) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('File Barbershops Id') ?></th>
-            <td><?= $this->Html->image($barbershop->file_barbershops_id['path'].$barbershop->file_barbershops_id['name']); ?></td>
+            <th scope="row"><?= __('File') ?></th>
+            <td><?= $barbershop->has('file') ? $this->Html->link($barbershop->file->name, ['controller' => 'Files', 'action' => 'view', $barbershop->file->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Id') ?></th>

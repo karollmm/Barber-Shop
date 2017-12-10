@@ -79,10 +79,6 @@ class UsersTable extends Table
         ->notEmpty('phone');
 
         $validator
-        ->scalar('file_users_id')
-        ->allowEmpty('file_users_id');
-
-        $validator
         ->date('date_of_birth')
         ->requirePresence('date_of_birth', 'create')
         ->notEmpty('date_of_birth');
@@ -111,6 +107,7 @@ class UsersTable extends Table
     {
         $rules->add($rules->isUnique(['email']));
         $rules->add($rules->isUnique(['username']));
+        $rules->add($rules->existsIn(['file_users_id'], 'Files'));
         return $rules;
     }
 }

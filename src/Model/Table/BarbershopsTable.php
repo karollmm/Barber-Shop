@@ -98,10 +98,6 @@ class BarbershopsTable extends Table
             ->requirePresence('complement', 'create')
             ->notEmpty('complement');
 
-        $validator
-            ->scalar('file_barbershops_id')
-            ->allowEmpty('file_barbershops_id');
-
         return $validator;
     }
 
