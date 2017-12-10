@@ -28,11 +28,11 @@ class FilesTable extends Table
      */
     public function initialize(array $config)
     {
-        parent::initialize($config);
+      parent::initialize($config);
 
-        $this->setTable('files');
-        $this->setDisplayField('name');
-        $this->setPrimaryKey('id');
+      $this->setTable('files');
+      $this->setDisplayField('name');
+      $this->setPrimaryKey('id');
     }
 
     /**
@@ -43,32 +43,32 @@ class FilesTable extends Table
      */
     public function validationDefault(Validator $validator)
     {
-        $validator
-        ->integer('id')
-        ->allowEmpty('id', 'create');
+      $validator
+      ->integer('id')
+      ->allowEmpty('id', 'create');
 
-        $validator
-        ->scalar('name')
-        ->allowEmpty('name');
+      $validator
+      ->scalar('name')
+      ->allowEmpty('name');
 
-        $validator
-        ->scalar('path')
-        ->allowEmpty('path');
+      $validator
+      ->scalar('path')
+      ->allowEmpty('path');
 
-        return $validator;
+      return $validator;
     }
 
     public function uploadAndSaveFile($tmp_name, $path, $fileName){
-       $uploadFile = $path.$fileName;
-       if(move_uploaded_file($tmp_name,WWW_ROOT.$uploadFile)){
-           $uploadData = $this->newEntity();
-           $uploadData->name = $fileName;
-           $uploadData->path = $path;
-           if ($this->save($uploadData)) {
-               return $uploadData;
-           }
+     $uploadFile = $path.$fileName;
+     if(move_uploaded_file($tmp_name,WWW_ROOT.$uploadFile)){
+       $uploadData = $this->newEntity();
+       $uploadData->name = $fileName;
+       $uploadData->path = $path;
+       if ($this->save($uploadData)) {
+         return $uploadData;
        }
-       return false;
+     }
+     return false;
    }
-
-}
+   
+ }

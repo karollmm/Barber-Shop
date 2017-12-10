@@ -31,7 +31,7 @@ class UsersFixture extends TestFixture
         ],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
-            'fk_files_users' => ['type' => 'foreign', 'columns' => ['file_users_id'], 'references' => ['files', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
+            'fk_files_users' => ['type' => 'foreign', 'columns' => ['file_users_id'], 'references' => ['files', 'id'], 'update' => 'restrict', 'delete' => 'cascade', 'length' => []],
         ],
         '_options' => [
             'engine' => 'InnoDB',
@@ -52,7 +52,7 @@ class UsersFixture extends TestFixture
             'cpf' => 'Lorem ips',
             'email' => 'Lorem ipsum dolor sit amet',
             'phone' => 'Lorem ipsum d',
-            'date_of_birth' => '2017-12-08',
+            'date_of_birth' => '2017-12-10',
             'username' => 'Lorem ipsum dolor sit amet',
             'password' => 'Lorem ipsum dolor sit amet',
             'file_users_id' => 1

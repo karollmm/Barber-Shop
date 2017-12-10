@@ -41,10 +41,10 @@ class UsersTable extends Table
             ->setForeignKey('file_users_id') // nome da coluna da chave estrangeira
             ->setProperty('file_users_id'); //nome da propriedade que será criada no modelo
 
-        $this->hasMany('Schedules', [
-            'foreignKey' => 'user_id'
-        ]);
-    }
+            $this->hasMany('Schedules', [
+                'foreignKey' => 'user_id'
+            ]);
+        }
 
     /**
      * Default validation rules.
@@ -55,47 +55,47 @@ class UsersTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->integer('id')
-            ->allowEmpty('id', 'create');
+        ->integer('id')
+        ->allowEmpty('id', 'create');
 
         $validator
-            ->scalar('name')
-            ->requirePresence('name', 'create')
-            ->notEmpty('name');
+        ->scalar('name')
+        ->requirePresence('name', 'create')
+        ->notEmpty('name');
 
         $validator
-            ->scalar('cpf')
-            ->requirePresence('cpf', 'create')
-            ->notEmpty('cpf');
+        ->scalar('cpf')
+        ->requirePresence('cpf', 'create')
+        ->notEmpty('cpf');
 
         $validator
-            ->email('email')
-            ->requirePresence('email', 'create')
-            ->notEmpty('email');
+        ->email('email')
+        ->requirePresence('email', 'create')
+        ->notEmpty('email');
 
         $validator
-            ->scalar('phone')
-            ->requirePresence('phone', 'create')
-            ->notEmpty('phone');
+        ->scalar('phone')
+        ->requirePresence('phone', 'create')
+        ->notEmpty('phone');
 
         $validator
-            ->date('date_of_birth')
-            ->requirePresence('date_of_birth', 'create')
-            ->notEmpty('date_of_birth');
+        ->scalar('file_users_id')
+        ->allowEmpty('file_users_id');
 
         $validator
-            ->date('date_of_birth')
-            ->allowEmpty('file_users_id');
+        ->date('date_of_birth')
+        ->requirePresence('date_of_birth', 'create')
+        ->notEmpty('date_of_birth');
 
         $validator
-            ->scalar('username')
-            ->requirePresence('username', 'create')
-            ->notEmpty('username');
+        ->scalar('username')
+        ->requirePresence('username', 'create')
+        ->notEmpty('username');
 
         $validator
-            ->scalar('password')
-            ->requirePresence('password', 'create')
-            ->notEmpty('password');
+        ->scalar('password')
+        ->requirePresence('password', 'create')
+        ->notEmpty('password');
 
         return $validator;
     }
@@ -111,8 +111,6 @@ class UsersTable extends Table
     {
         $rules->add($rules->isUnique(['email']));
         $rules->add($rules->isUnique(['username']));
-        $rules->add($rules->existsIn(['file_users_id'], 'Files'));
-
         return $rules;
     }
 }
