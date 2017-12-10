@@ -9,7 +9,6 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property string $name
  * @property string $cnpj
- * @property string $cpf
  * @property string $phone
  * @property string $cep
  * @property string $state
@@ -36,7 +35,6 @@ class Barbershop extends Entity
     protected $_accessible = [
         'name' => true,
         'cnpj' => true,
-        'cpf' => true,
         'phone' => true,
         'cep' => true,
         'state' => true,

@@ -27,10 +27,6 @@
             <td><?= h($barbershop->cnpj) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Cpf') ?></th>
-            <td><?= h($barbershop->cpf) ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Phone') ?></th>
             <td><?= h($barbershop->phone) ?></td>
         </tr>

@@ -6,7 +6,6 @@ use App\Controller\AppController;
 /**
  * Barbershops Controller
  *
- * @property \App\Model\Table\BarbershopsTable $Barbershops
  *
  * @method \App\Model\Entity\Barbershop[] paginate($object = null, array $settings = [])
  */
@@ -33,9 +32,6 @@ class BarbershopsController extends AppController
      */
     public function index()
     {
-        $this->paginate = [
-            'contain' => ['Files']
-        ];
         $barbershops = $this->paginate($this->Barbershops);
 
         $this->set(compact('barbershops'));
@@ -52,7 +48,7 @@ class BarbershopsController extends AppController
     public function view($id = null)
     {
         $barbershop = $this->Barbershops->get($id, [
-            'contain' => ['Files']
+            'contain' => []
         ]);
 
         $this->set('barbershop', $barbershop);
@@ -76,8 +72,7 @@ class BarbershopsController extends AppController
             }
             $this->Flash->error(__('The barbershop could not be saved. Please, try again.'));
         }
-        $files = $this->Barbershops->Files->find('list', ['limit' => 200]);
-        $this->set(compact('barbershop', 'files'));
+        $this->set(compact('barbershop'));
         $this->set('_serialize', ['barbershop']);
     }
 
@@ -102,8 +97,7 @@ class BarbershopsController extends AppController
             }
             $this->Flash->error(__('The barbershop could not be saved. Please, try again.'));
         }
-        $files = $this->Barbershops->Files->find('list', ['limit' => 200]);
-        $this->set(compact('barbershop', 'files'));
+        $this->set(compact('barbershop'));
         $this->set('_serialize', ['barbershop']);
     }
 

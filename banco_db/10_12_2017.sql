@@ -26,7 +26,6 @@ CREATE TABLE `barbershops` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(20) NOT NULL,
   `cnpj` varchar(15) NOT NULL,
-  `cpf` varchar(11) NOT NULL,
   `phone` varchar(15) NOT NULL,
   `cep` varchar(15) NOT NULL,
   `state` varchar(20) NOT NULL,

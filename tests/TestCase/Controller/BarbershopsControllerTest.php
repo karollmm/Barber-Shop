@@ -16,8 +16,7 @@ class BarbershopsControllerTest extends IntegrationTestCase
      * @var array
      */
     public $fixtures = [
-        'app.barbershops',
-        'app.files'
+        'app.barbershops'
     ];
 
     /**
