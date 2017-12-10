@@ -36,9 +36,9 @@ class BarbershopsTable extends Table
         $this->setDisplayField('name');
         $this->setPrimaryKey('id');
 
-        $this->belongsTo('Files', [
-            'foreignKey' => 'file_barbershops_id'
-        ]);
+        $this->belongsTo('Files')
+            ->setForeignKey('file_barbershops_id') // nome da coluna da chave estrangeira
+            ->setProperty('file_barbershops_id'); //nome da propriedade que será criada no modelo
     }
 
     /**
@@ -98,11 +98,11 @@ class BarbershopsTable extends Table
             ->requirePresence('complement', 'create')
             ->notEmpty('complement');
 
-        return $validator;
-    }
+        $validator
+            ->scalar('file_barbershops_id')
+            ->allowEmpty('file_barbershops_id');
 
-    public function isOwnedBy($params, $userId){
-        return $this->exists(['id' => $params, 'id_user' => $userId]);
+        return $validator;
     }
 
     /**

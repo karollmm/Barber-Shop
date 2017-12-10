@@ -8,8 +8,6 @@
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('New Barbershop'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Files'), ['controller' => 'Files', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New File'), ['controller' => 'Files', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="barbershops index large-9 medium-8 columns content">
@@ -26,7 +24,6 @@
                 <th scope="col"><?= $this->Paginator->sort('city') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('street') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('number') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('file_barbershops_id') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -42,7 +39,7 @@
                 <td><?= h($barbershop->city) ?></td>
                 <td><?= h($barbershop->street) ?></td>
                 <td><?= $this->Number->format($barbershop->number) ?></td>
-                <td><?= $barbershop->has('file') ? $this->Html->link($barbershop->file->name, ['controller' => 'Files', 'action' => 'view', $barbershop->file->id]) : '' ?></td>
+                <td><?= $this->Html->image($barbershop->file_barbershops_id['path'].$barbershop->file_barbershops_id['name']); ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $barbershop->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $barbershop->id]) ?>
