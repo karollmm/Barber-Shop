@@ -13,6 +13,19 @@ use App\Controller\AppController;
 class ServicesController extends AppController
 {
 
+    public function isAuthorized($user){
+        if ($this->request->getParam('action') === 'add') {
+            return true;
+        }
+        if (in_array($this->request->getParam('action'), ['edit', 'delete'])) {
+            $servicesId = (int) $this->request->getParam('pass.0');
+            if ($this->Services->isOwnedBy($servicesId, $user['id'])) {
+                return true;
+            }
+        }
+        return parent::isAuthorized($user);
+    }
+
     /**
      * Index method
      *
