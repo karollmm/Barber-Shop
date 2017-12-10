@@ -20,7 +20,7 @@
             <h1 class="mb-4 text-center">Adicionar Serviços</h1>
             <span>Atenção, os campos marcados com o * asterísco são obrigatórios. </span>
             <br>
-            <?= $this->Form->create($service, ['class'=>'form-group', 'type' => 'file']) ?>
+            <?= $this->Form->create($service, ['class'=>'form-group']) ?>
             <br>
             <?= $this->Form->control('name', ['class' => 'form-control', 'label' => 'Nome: ', 'placeholder' => 'Nome']); ?>
             <br>

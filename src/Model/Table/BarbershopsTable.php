@@ -64,11 +64,6 @@ class BarbershopsTable extends Table
             ->notEmpty('cnpj');
 
         $validator
-            ->scalar('cpf')
-            ->requirePresence('cpf', 'create')
-            ->notEmpty('cpf');
-
-        $validator
             ->scalar('phone')
             ->requirePresence('phone', 'create')
             ->notEmpty('phone');

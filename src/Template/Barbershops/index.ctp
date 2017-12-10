@@ -20,7 +20,6 @@
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('cnpj') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('cpf') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('phone') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('cep') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('state') ?></th>
@@ -37,7 +36,6 @@
                 <td><?= $this->Number->format($barbershop->id) ?></td>
                 <td><?= h($barbershop->name) ?></td>
                 <td><?= h($barbershop->cnpj) ?></td>
-                <td><?= h($barbershop->cpf) ?></td>
                 <td><?= h($barbershop->phone) ?></td>
                 <td><?= h($barbershop->cep) ?></td>
                 <td><?= h($barbershop->state) ?></td>
