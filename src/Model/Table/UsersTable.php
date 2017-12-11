@@ -55,43 +55,48 @@ class UsersTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-        ->integer('id')
-        ->allowEmpty('id', 'create');
+            ->integer('id')
+            ->allowEmpty('id', 'create');
 
         $validator
-        ->scalar('name')
-        ->requirePresence('name', 'create')
-        ->notEmpty('name');
+            ->scalar('name')
+            ->requirePresence('name', 'create')
+            ->notEmpty('name');
 
         $validator
-        ->scalar('cpf')
-        ->requirePresence('cpf', 'create')
-        ->notEmpty('cpf');
+            ->scalar('cpf')
+            ->requirePresence('cpf', 'create')
+            ->notEmpty('cpf');
 
         $validator
-        ->email('email')
-        ->requirePresence('email', 'create')
-        ->notEmpty('email');
+            ->email('email')
+            ->requirePresence('email', 'create')
+            ->notEmpty('email');
 
         $validator
-        ->scalar('phone')
-        ->requirePresence('phone', 'create')
-        ->notEmpty('phone');
+            ->scalar('phone')
+            ->requirePresence('phone', 'create')
+            ->notEmpty('phone');
 
         $validator
-        ->date('date_of_birth')
-        ->requirePresence('date_of_birth', 'create')
-        ->notEmpty('date_of_birth');
+            ->date('date_of_birth')
+            ->requirePresence('date_of_birth', 'create')
+            ->notEmpty('date_of_birth');
 
         $validator
-        ->scalar('username')
-        ->requirePresence('username', 'create')
-        ->notEmpty('username');
+            ->scalar('username')
+            ->requirePresence('username', 'create')
+            ->notEmpty('username');
 
         $validator
-        ->scalar('password')
-        ->requirePresence('password', 'create')
-        ->notEmpty('password');
+            ->scalar('password')
+            ->requirePresence('password', 'create')
+            ->notEmpty('password');
+
+        $validator
+            ->scalar('file_users_id')
+            ->requirePresence('file_users_id', 'create')
+            ->allowEmpty('file_users_id');
 
         return $validator;
     }
@@ -107,7 +112,6 @@ class UsersTable extends Table
     {
         $rules->add($rules->isUnique(['email']));
         $rules->add($rules->isUnique(['username']));
-        $rules->add($rules->existsIn(['file_users_id'], 'Files'));
         return $rules;
     }
 }
