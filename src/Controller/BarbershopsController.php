@@ -78,7 +78,7 @@ class BarbershopsController extends AppController
             $barbershop = $this->Barbershops->patchEntity($barbershop, $this->request->getData());
             if(!empty($this->request->data['file_barbershops_id']['name'])){
                 $extension = pathinfo($this->request->data['file_barbershops_id']['name'], PATHINFO_EXTENSION);
-                $image = $this->Files->uploadAndSaveFile($this->request->data['file_barbershops_id']['tmp_name'],'/uploads/','barbearia_'.uniqid(rand(), true).'.'.$extension);
+                $image = $this->Files->uploadAndSaveFile($this->request->data['file_barbershops_id']['tmp_name'],'/uploads/barbearia/','barbearia_'.uniqid(rand(), true).'.'.$extension);
                 if($image){
                     $barbershop->file_barbershops_id = $image->id;
                     if ($this->Barbershops->save($barbershop)) {
