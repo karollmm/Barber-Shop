@@ -64,16 +64,17 @@
               <button class="btn btn-dark dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user-circle-o" aria-hidden="true"></i> 
               Cadastre-se </button>
 
-              <div class="dropdown-menu">
+                <div class="dropdown-menu">
 
-                <?= $this->Html->link( '<i class="fa fa-user" aria-hidden="true"></i> ' . 'Sou cliente', ['controller' => 'users','action' => 'add'], 
-                ['escape' => false, 'class' => 'dropdown-item']) ?>
+                <?= $this->Html->link(__('<i class="fa fa-user" aria-hidden="true"></i>' . ' Sou Cliente'), 
+                ['controller' => 'Users', 'action' => 'add_user'], ['escape' => false, 'class' => 'dropdown-item']) ?>
 
-                <div class="dropdown-divider"></div>
+                  <div class="dropdown-divider"></div>
 
-                <a class="dropdown-item" href="#"><i class="fa fa-home" aria-hidden="true"></i> Tenho uma Barbearia </a>
+                  <?= $this->Html->link(__('<i class="fa fa-home" aria-hidden="true"></i>' . ' Tenho uma Barbearia'), 
+                  ['controller' => 'Users', 'action' => 'add_barber'], ['escape' => false, 'class' => 'dropdown-item'])?>
 
-              </div>
+                </div>
 
             </li>
 

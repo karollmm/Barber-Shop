@@ -26,6 +26,7 @@ class UsersFixture extends TestFixture
         'username' => ['type' => 'string', 'length' => 60, 'null' => false, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'password' => ['type' => 'string', 'length' => 255, 'null' => false, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'file_users_id' => ['type' => 'integer', 'length' => 10, 'unsigned' => true, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
+        'role' => ['type' => 'string', 'length' => 20, 'null' => false, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         '_indexes' => [
             'fk_files_users' => ['type' => 'index', 'columns' => ['file_users_id'], 'length' => []],
         ],
@@ -52,10 +53,11 @@ class UsersFixture extends TestFixture
             'cpf' => 'Lorem ips',
             'email' => 'Lorem ipsum dolor sit amet',
             'phone' => 'Lorem ipsum d',
-            'date_of_birth' => '2017-12-10',
+            'date_of_birth' => '2017-12-13',
             'username' => 'Lorem ipsum dolor sit amet',
             'password' => 'Lorem ipsum dolor sit amet',
-            'file_users_id' => 1
+            'file_users_id' => 1,
+            'role' => 'Lorem ipsum dolor '
         ],
     ];
 }

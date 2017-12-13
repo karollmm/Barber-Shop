@@ -41,7 +41,7 @@ class BarbershopsController extends AppController
             'contain' => ['Files']
         ];
 
-        $barbershop = $this->paginate($this->Barbershops);
+        $barbershops = $this->paginate($this->Barbershops);
 
         $this->set(compact('barbershops'));
         $this->set('_serialize', ['barbershops']);
