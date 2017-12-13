@@ -105,5 +105,5 @@ class BarbershopsTable extends Table
 
         return $validator;
     }
-    
+
 }

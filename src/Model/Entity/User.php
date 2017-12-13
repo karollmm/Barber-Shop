@@ -15,6 +15,7 @@ use Cake\Auth\DefaultPasswordHasher;
  * @property \Cake\I18n\FrozenDate $date_of_birth
  * @property string $username
  * @property string $password
+ * @property string $role
  *
  * @property \App\Model\Entity\File $file_users_id
  * @property \App\Model\Entity\Schedule[] $schedules
@@ -40,6 +41,7 @@ class User extends Entity
         'username' => true,
         'password' => true,
         'file_users_id' => true,
+        'role' => true,
         'schedules' => true
     ];
 
@@ -53,7 +55,7 @@ class User extends Entity
     ];
 
     protected function _setPassword($password){
-       return (new DefaultPasswordHasher)->hash($password);
-   }
+     return (new DefaultPasswordHasher)->hash($password);
+ }
 
 }

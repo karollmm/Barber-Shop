@@ -1,4 +1,3 @@
-<?= $this->Flash->render() ?>
 <div class="py-5 bg-light">
   <div class="container">
     <div class="row">
@@ -6,7 +5,7 @@
       <div class="col-md-6">
         <div class="card bg-light text-dark">
           <div class="card-body">
-            <h1 class="mb-4 text-center">Adicionar Usuário</h1>
+            <h1 class="mb-4 text-center">Adicionar Administrador da Barbearia</h1>
             <span>Atenção, os campos marcados com o * asterísco são obrigatórios. </span>
             <br><br>
             <?= $this->Form->create($user, ['class'=>'form-group', 'type' => 'file']) ?>
@@ -31,6 +30,8 @@
                 <?= $this->Form->control('password', ['class' => 'form-control', 'label' => 'Senha:', 'placeholder' => 'Senha']); ?>
                 <br>
                 <?= $this->Form->control('file_users_id', ['class' => 'form-control', 'label' => 'Imagem:', 'type' => 'file']); ?>
+                <br>
+                <?= $this->Form->hidden('role', ['class' => 'form-control', 'default' => 'adminBarber']); ?>
                 <br>
                 <?= $this->Form->button('Salvar '.'<i class="fa fa-check" aria-hidden="true"></i>', ['class' => 'btn text-center text-white 
                 btn-block btn-success', 'type' => 'Submit']) ?>

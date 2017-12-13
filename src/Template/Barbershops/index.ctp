@@ -42,7 +42,7 @@
                 <td><?= h($barbershop->city) ?></td>
                 <td><?= h($barbershop->street) ?></td>
                 <td><?= $this->Number->format($barbershop->number) ?></td>
-                <td><?= $barbershop->has('file') ? $this->Html->link($barbershop->file->name, ['controller' => 'Files', 'action' => 'view', $barbershop->file->id]) : '' ?></td>
+                <td><?= $this->Html->image($barbershop->file_barbershops_id['path'].$barbershop->file_barbershops_id['name'] != null ? $barbershop->file_barbershops_id['path'].$barbershop->file_barbershops_id['name'] : " "); ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $barbershop->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $barbershop->id]) ?>

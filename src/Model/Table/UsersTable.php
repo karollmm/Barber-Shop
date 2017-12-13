@@ -98,6 +98,11 @@ class UsersTable extends Table
             ->requirePresence('file_users_id', 'create')
             ->allowEmpty('file_users_id');
 
+        $validator
+        ->scalar('role')
+        ->requirePresence('role', 'create')
+        ->notEmpty('role');
+
         return $validator;
     }
 

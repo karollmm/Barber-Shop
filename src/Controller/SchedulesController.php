@@ -79,6 +79,7 @@ class SchedulesController extends AppController
             }
             $this->Flash->error(__('The schedule could not be saved. Please, try again.'));
         }
+        //$users = $this->Schedules->Users->find('list', ['id' => $this->Auth->user('id')]);
         $users = $this->Schedules->Users->find('list', ['limit' => 200]);
         $services = $this->Schedules->Services->find('list', ['limit' => 200]);
         $this->set(compact('schedule', 'users', 'services'));

@@ -31,11 +31,13 @@ class AppController extends Controller
     public function beforeFilter(Event $event)
     {   
         parent::beforeFilter($event);
-        $this->Auth->allow(['login', 'display']);
+        $this->Auth->allow(['login', 'display', 
+            'addBarber', 'addUser', 'logout']);
+        $this->Auth->deny(['edit', 'index','view','delete']);
     }
 
     public function isAuthorized($user){
-        if (isset($user['username'])) {
+        if (isset($user['role']) && $user['role'] == 'adminBarber' || $user['role'] == 'userBarber') {
             return true;
         }
         return false;
