@@ -16,8 +16,9 @@ use Cake\ORM\Entity;
  * @property string $street
  * @property int $number
  * @property string $complement
+ * @property int $file_barbershops_id
  *
- * @property \App\Model\Entity\File $file_barbershops_id
+ * @property \App\Model\Entity\File $file
  */
 class Barbershop extends Entity
 {
@@ -41,6 +42,7 @@ class Barbershop extends Entity
         'street' => true,
         'number' => true,
         'complement' => true,
-        'file_barbershops_id' => true
+        'file_barbershops_id' => true,
+        'file' => true
     ];
 }
