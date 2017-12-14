@@ -22,10 +22,6 @@ class UsersController extends AppController
     {
 
         if ($this->request->getParam('action') === 'index') {
-            $userId = (int)$this->request->getParam('pass.0');
-            if ($userId === $user['id']) {
-                return true;
-            }
             if($user['role'] === 'admin'){
                 return true;
             }

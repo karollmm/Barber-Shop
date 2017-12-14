@@ -21,39 +21,38 @@ $cakeTitle = 'BarberShop'; //titulo da pagina home
 <html>
 <head>
 
-  <?= $this->Html->charset() ?>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<?= $this->Html->charset() ?>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>
-    <?= $cakeTitle?>
-  </title>
+	<title>
+		<?= $cakeTitle?>
+	</title>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
 
-  <?= $this->Html->css('bootstrap-pingendo.css') ?>
-  <?= $this->Html->css('barber-shop-style.css') ?>
-
-
+	<?= $this->Html->css('bootstrap-pingendo.css') ?>
+	<?= $this->Html->css('barber-shop-style.css') ?>
+	<?= $this->Html->css('style-barbershop.css') ?>
 
 </head>
 
 <body>
 
-<!-- nav-menu -->
-<?= $this->element('home/nav-menu') ?>
-<!-- nav-menu -->
+	<!-- nav-menu -->
+	<?= $this->element('home/nav-menu') ?>
+	<!-- nav-menu -->
 
-<?= $this->Flash->render() ?>
-<!-- conteudo -->
-<div class="main-content">
-  <?= $this->fetch('content')?>
-</div>
-<!-- conteudo -->
+	<?= $this->Flash->render() ?>
+	<!-- conteudo -->
+	<div class="main-content">
+		<?= $this->fetch('content')?>
+	</div>
+	<!-- conteudo -->
 
 
-<!-- footer -->
-<?= $this->element('home/footer') ?>
-<!-- footer -->
+	<!-- footer -->
+	<?= $this->element('home/footer') ?>
+	<!-- footer -->
 
 </body>
 </html>
