@@ -28,16 +28,16 @@ use Cake\Event\Event;
 class AppController extends Controller
 {
 
-    public function beforeFilter(Event $event)
-    {   
-        parent::beforeFilter($event);
-        $this->Auth->allow(['login', 'display', 
-            'addBarber', 'addUser', 'logout']);
-        $this->Auth->deny(['edit', 'index','view','delete']);
+    public function beforeFilter(Event $event) {
+        $this->Auth->allow ( [ 
+                'display' 
+        ]);
     }
 
-    public function isAuthorized($user){
-        if (isset($user['role']) && $user['role'] == 'adminBarber' || $user['role'] == 'userBarber') {
+    public function isAuthorized($user)
+    {
+        
+        if (isset($user['role']) && $user['role'] === 'admin') {
             return true;
         }
         return false;
@@ -60,16 +60,17 @@ class AppController extends Controller
         $this->loadComponent('Auth', [
 
             'loginRedirect' => [
-               'controller' => 'Pages',
-               'action' => 'display',
-               'home'
-           ],
-           'authError' => 'Você deve realizar login para acessar esta página.',
-           'logoutRedirect' => [
+             'controller' => 'Pages',
+             'action' => 'display',
+             'home'
+         ],
+         'authError' => 'Você não está autorizado para acessar esse local.',
+         'logoutRedirect' => [
             'controller' => 'Pages',
             'action' => 'display',
             'home'
-        ]
+        ],
+        'authorize' => ['Controller']
     ]);
 
     }

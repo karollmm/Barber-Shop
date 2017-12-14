@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Event\Event;
 
 /**
  * Schedules Controller
@@ -14,19 +15,64 @@ class SchedulesController extends AppController
 {
 
 
-    public function isAuthorized($user){
+    public function isAuthorized($user)
+    {
         if ($this->request->getParam('action') === 'add') {
-            return true;
-        }
-        if (in_array($this->request->getParam('action'), ['edit', 'delete'])) {
-            $schedulesId = (int) $this->request->getParam('pass.0');
-            if ($this->Schedules->isOwnedBy($schedulesId, $user['id'])) {
+            if ($user['role'] === 'adminBarber' || $user['role'] === 'userBarber') {
+                return true;
+            }
+            if($user['role'] === 'admin'){
                 return true;
             }
         }
+
+        if ($this->request->getParam('action') === 'edit') {
+            $userId = (int)$this->request->getParam('pass.0');
+            if (($userId === $user['id'] && $user['role'] === 'adminBarber') || 
+                ($userId === $user['id'] && $user['role'] === 'userBarber')) {
+                return true;
+            }
+            if($user['role'] === 'admin'){
+                return true;
+            }
+        }
+
+        if ($this->request->getParam('action') === 'delete') {
+            $userId = (int)$this->request->getParam('pass.0');
+            if (($userId === $user['id'] && $user['role'] === 'adminBarber') || 
+                ($userId === $user['id'] && $user['role'] === 'userBarber')) {
+                return true;
+            }
+            if($user['role'] === 'admin'){
+                return true;
+            }
+        }
+
+        if ($this->request->getParam('action') === 'index') {
+            if($user['role'] === 'admin' || $user['role'] === 'adminBarber' || $user['role'] === 'userBarber'){
+                return true;
+            }
+        }
+
+        if ($this->request->getParam('action') === 'view') {
+            $userId = (int)$this->request->getParam('pass.0');
+            if (($userId === $user['id'] && $user['role'] === 'adminBarber') || 
+                ($userId === $user['id'] && $user['role'] === 'userBarber')) {
+                return true;
+            }
+            if($user['role'] === 'admin'){
+                return true;
+            }
+        }
+
         return parent::isAuthorized($user);
     }
 
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
+        $this->Auth->deny(['edit','index','view','delete', 'add']);
+    }
 
     /**
      * Index method

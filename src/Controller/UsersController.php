@@ -15,12 +15,56 @@ use Cake\Event\Event;
 class UsersController extends AppController
 {
 
+    public function isAuthorized($user)
+    {
+
+        if ($this->request->getParam('action') === 'index') {
+            $userId = (int)$this->request->getParam('pass.0');
+            if ($userId === $user['id']) {
+                return true;
+            }
+            if($user['role'] === 'admin'){
+                return true;
+            }
+        }
+
+        if ($this->request->getParam('action') === 'edit') {
+            $userId = (int)$this->request->getParam('pass.0');
+            if ($userId === $user['id']) {
+                return true;
+            }
+            if($user['role'] === 'admin'){
+                return true;
+            }
+        }
+
+        if ($this->request->getParam('action') === 'view') {
+            $userId = (int)$this->request->getParam('pass.0');
+            if ($userId === $user['id']) {
+                return true;
+            }
+            if($user['role'] === 'admin'){
+                return true;
+            }
+        }
+
+        return parent::isAuthorized($user);
+    }
+
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
+        $this->Auth->allow(['addUser', 'addBarber', 'logout', 'login']);
+        $this->Auth->deny(['edit', 'index','view','delete']);
+    }
+
+
     public function initialize(){
         parent::initialize();
         $this->loadModel('Files');
     }
 
-     public function login()
+    public function login()
     {
 
         if($this->request->is('post')){
@@ -156,7 +200,6 @@ class UsersController extends AppController
      */
     public function edit($id = null)
     {
-
         $user = $this->Users->get($id, [
             'contain' => []
         ]);
