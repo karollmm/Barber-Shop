@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Event\Event;
 
 /**
  * Barbershops Controller
@@ -16,19 +17,51 @@ class BarbershopsController extends AppController
     public function isAuthorized($user)
     {
         if ($this->request->getParam('action') === 'add') {
-            return true;
+            if($user['role'] === 'admin' || $user['role'] === 'adminBarber'){
+                return true;
+            }
         }
-        if (in_array($this->request->getParam('action'), ['edit', 'delete'])) {
-            $barbershopId = (int)$this->request->getParam('pass.0');
-            if ($this->Barbershops->isOwnedBy($barbershopId, $user['id'])) {
-               return true;
-           }
-       }
-       return parent::isAuthorized($user);
-   }
 
-   public function initialize()
-   {
+        if ($this->request->getParam('action') === 'edit') {
+            $userId = (int)$this->request->getParam('pass.0');
+            if ($userId === $user['id'] && $user['role'] === 'adminBarber') {
+                return true;
+            }
+            if($user['role'] === 'admin'){
+                return true;
+            }
+        }
+
+        if ($this->request->getParam('action') === 'delete') {
+            if($user['role'] === 'admin'){
+                return true;
+            }
+        }
+
+        if ($this->request->getParam('action') === 'index') {
+            if($user['role'] === 'admin' || $user['role'] === 'adminBarber' || $user['role'] === 'userBarber'){
+                return true;
+            }
+        }
+
+        if ($this->request->getParam('action') === 'view') {
+            if($user['role'] === 'admin' || $user['role'] === 'adminBarber'){
+                return true;
+            }
+        }
+
+        return parent::isAuthorized($user);
+    }
+
+
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
+        $this->Auth->deny(['edit','index','view','delete', 'add']);
+    }
+
+    public function initialize()
+    {
         parent::initialize();
         $this->loadModel('Files');
     }
