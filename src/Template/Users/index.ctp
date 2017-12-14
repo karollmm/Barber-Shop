@@ -5,8 +5,8 @@
         <ul class="list-group">
             <li class="list-group-item"><?= __('Usuário') ?></li>
             <?php if($user['role'] == 'admin'): ?>
-                <li class="list-group-item"><?= $this->Html->link(__('List Schedules'), ['controller' => 'Schedules', 'action' => 'index']) ?></li>
-                <li class="list-group-item"><?= $this->Html->link(__('New Schedule'), ['controller' => 'Schedules', 'action' => 'add']) ?></li>
+                <li class="list-group-item"><?= $this->Html->link(__('Lista de Agendamentos'), ['controller' => 'Schedules', 'action' => 'index']) ?></li>
+                <li class="list-group-item"><?= $this->Html->link(__('Adicionar um Agendamento'), ['controller' => 'Schedules', 'action' => 'add']) ?></li>
             <?php endif; ?>
         </ul>
     </div>

@@ -4,18 +4,16 @@
       <div class="col-md-3">
         <ul class="list-group">
             <li class="list-group-item"><?= __('Agendamento') ?></li>
-            <?php if($user['role'] == 'userBarber'): ?>
+            <?php if($user['role'] == 'admin'): ?>
+                
                 <li class="list-group-item"><?= $this->Html->link(__('Novo Agendamento'), ['action' => 'add']) ?></li>
+                
                 <li class="list-group-item"><?= $this->Html->link(__('Editar Agendamento'), ['action' => 'edit']) ?></li>
-            <?php endif; ?>
 
-            <?php if($user['role'] != 'userBarber'): ?>
+                <li class="list-group-item"><?= $this->Html->link(__('Lista de Usuários'), ['controller' => 'Users', 'action' => 'index']) ?></li>
                 <li class="list-group-item"><?= $this->Html->link(__('Lista de Serviços'), ['controller' => 'Services', 'action' => 'index']) ?></li>
                 <li class="list-group-item"><?= $this->Html->link(__('Novo Service'), ['controller' => 'Services', 'action' => 'add']) ?></li>
-            <?php endif; ?>
-
-            <?php if($user['role'] == 'admin'): ?>
-                <li class="list-group-item"><?= $this->Html->link(__('Lista de Usuários'), ['controller' => 'Users', 'action' => 'index']) ?></li>
+                <li class="list-group-item"><?= $this->Html->link(__('Lista Agendamentos'), ['action' => 'index']) ?></li>
             <?php endif; ?>
         </ul>
     </div>

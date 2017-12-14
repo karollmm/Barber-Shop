@@ -4,7 +4,7 @@
       <div class="col-md-3">
         <ul class="list-group">
             <li class="list-group-item"><?= __('Barbearia') ?></li>
-            <?php if($user['role'] != 'userBarber'): ?>
+            <?php if($user['role'] == 'admin'): ?>
                 <li class="list-group-item"><?= $this->Html->link(__('New Barbershop'), ['action' => 'add']) ?></li>
             <?php endif; ?>
         </ul>
