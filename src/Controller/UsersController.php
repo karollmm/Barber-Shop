@@ -128,7 +128,7 @@ class UsersController extends AppController
             $user = $this->Users->patchEntity($user, $this->request->getData());
             if(!empty($this->request->data['file_users_id']['name'])){
                 $extension = pathinfo($this->request->data['file_users_id']['name'], PATHINFO_EXTENSION);
-                $image = $this->Files->uploadAndSaveFile($this->request->data['file_users_id']['tmp_name'],'/uploads/','perfil_'.uniqid(rand(), true).'.'.$extension);
+                $image = $this->Files->uploadAndSaveFile($this->request->data['file_users_id']['tmp_name'],'/uploads/perfil/','perfil_'.uniqid(rand(), true).'.'.$extension);
                 if($image){
                     $user->file_users_id = $image->id;
                     if ($this->Users->save($user)) {
