@@ -1,7 +1,5 @@
- <?php $user = $this->request->session()->read('Auth.User'); ?>
-
- <!-- nav-menu -->
- <nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top">
+<!-- nav-menu -->
+<nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top">
 
   <div class="container-fluid">
 
@@ -16,76 +14,37 @@
 
       <ul class="navbar-nav">
 
-        <?php if($user): ?>
+        <li class="nav-item">
+          <a class="btn navbar-btn ml-2 text-white btn-dark" href="#"><i class="fa fa-users" aria-hidden="true"></i> Quem Somos </a>
+        </li>
 
-          <li class="nav-item">
-            <?= $this->Html->link(__('<i class="fa fa-calendar" aria-hidden="true"></i>'. ' Agendar Serviço') ,['controller' => 'schedules', 'action' => 'add', $user['id']], ['escape' => false, 'class' => 'btn navbar-btn ml-3 text-white btn-dark'])?>
+        <li class="nav-item">
+
+          <div class="btn-group">
+
+            <button class="btn btn-dark dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user-circle-o" aria-hidden="true"></i> 
+            Cadastre-se </button>
+
+            <div class="dropdown-menu">
+
+              <?= $this->Html->link(__('<i class="fa fa-user" aria-hidden="true"></i>' . ' Sou Cliente'), 
+              ['controller' => 'Users', 'action' => 'add_user'], ['escape' => false, 'class' => 'dropdown-item']) ?>
+
+              <div class="dropdown-divider"></div>
+
+              <?= $this->Html->link(__('<i class="fa fa-home" aria-hidden="true"></i>' . ' Tenho uma Barbearia'), 
+              ['controller' => 'Users', 'action' => 'add_barber'], ['escape' => false, 'class' => 'dropdown-item'])?>
+
+            </div>
+
           </li>
 
-        <?php else: ?>
-
           <li class="nav-item">
-            <a class="btn navbar-btn ml-2 text-white btn-dark" href="#"><i class="fa fa-users" aria-hidden="true"></i> Quem Somos </a>
+
+            <?= $this->Html->link( '<i class="fa fa-sign-in" aria-hidden="true"></i>' . ' Login ', ['controller' => 'users','action' => 'login'], 
+            ['class' => 'btn navbar-btn ml-2 text-white btn-dark', 'escape' => false]) ?>
+
           </li>
-
-          <li class="nav-item">
-
-          <?php endif ?>
-
-
-          <?php if($user): ?>
-
-            <div class="btn-group">
-
-              <button class="btn navbar-btn ml-3 btn-dark dropdown-toggle" data-toggle="dropdown"> 
-                <?= $user['name'] ?> 
-              </button>
-
-              <div class="dropdown-menu">
-
-                <?= $this->Html->link(__('<i class="fa fa-user-circle-o" aria-hidden="true"></i>'. ' Perfil') ,['controller' => 'Users', 'action' => 'view', $user['id']], ['escape' => false, 'class' => 'dropdown-item'])?>
-
-                <div class="dropdown-divider"></div>
-
-                <?= $this->Html->link(__('<i class="fa fa-pencil-square-o" aria-hidden="true"></i>'. ' Editar dados') ,['controller' => 'Users', 'action' => 'edit', $user['id']], ['escape' => false, 'class' => 'dropdown-item'])?>
-
-                <div class="dropdown-divider"></div>
-
-                <?= $this->Html->link(__('<i class="fa fa-sign-out" aria-hidden="true"></i>' . ' Logout'),['controller' => 'Users', 'action' => 'logout'], ['escape' => false, 'class' => 'dropdown-item'])?>                   
-
-              </div>
-
-            </li>
-
-          <?php else: ?>
-
-            <div class="btn-group">
-
-              <button class="btn btn-dark dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user-circle-o" aria-hidden="true"></i> 
-              Cadastre-se </button>
-
-                <div class="dropdown-menu">
-
-                <?= $this->Html->link(__('<i class="fa fa-user" aria-hidden="true"></i>' . ' Sou Cliente'), 
-                ['controller' => 'Users', 'action' => 'add_user'], ['escape' => false, 'class' => 'dropdown-item']) ?>
-
-                  <div class="dropdown-divider"></div>
-
-                  <?= $this->Html->link(__('<i class="fa fa-home" aria-hidden="true"></i>' . ' Tenho uma Barbearia'), 
-                  ['controller' => 'Users', 'action' => 'add_barber'], ['escape' => false, 'class' => 'dropdown-item'])?>
-
-                </div>
-
-            </li>
-
-            <li class="nav-item">
-
-              <?= $this->Html->link( '<i class="fa fa-sign-in" aria-hidden="true"></i>' . ' Login ', ['controller' => 'users','action' => 'login'], 
-              ['class' => 'btn navbar-btn ml-2 text-white btn-dark', 'escape' => false]) ?>
-
-            </li>
-
-          <?php endif ?>
 
         </ul>
 

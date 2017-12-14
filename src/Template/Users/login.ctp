@@ -13,6 +13,7 @@
                 <strong><?= __('Por favor, entre com seu e-mail e senha: ') ?></strong>
               </p>
               <?= $this->Form->control('username',['class' => 'form-control', 'label' => 'E-mail', 'placeholder' => 'E-mail']) ?>
+              <br>
               <?= $this->Form->control('password',['class' => 'form-control', 'label' => 'Senha', 'placeholder' => 'Senha']) ?>
             </fieldset>
             <br>

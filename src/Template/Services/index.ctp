@@ -4,17 +4,14 @@
       <div class="col-md-3">
         <ul class="list-group">
             <li class="list-group-item"><?= __('Serviços') ?></li>
-            <?php if($user['role'] != 'userBarber'): ?>
+            <?php if($user['role'] == 'admin'): ?>
+                <li class="list-group-item"><?= $this->Html->link(__('Adicionar Serviço'), ['action' => 'add']) ?></li>
                 
-                <li class="list-group-item"><?= $this->Html->link(__('Novo Serviço'), ['action' => 'add']) ?></li>
-                <li class="list-group-item"><?= $this->Html->link(__('Lista de Barbearias'), ['controller' => 'Barbershops', 'action' => 'index']) ?></li>
-                
-                <?php if($user['role'] != 'userBarber' || $user['role'] != 'adminBarber'): ?>
-                    <li class="list-group-item"><?= $this->Html->link(__('Nova Barbearia'), ['controller' => 'Barbershops', 'action' => 'add']) ?></li>
-                <?php endif; ?> 
-                
+                <li class="list-group-item"><?= $this->Html->link(__('Nova Barbearia'), ['controller' => 'Barbershops', 'action' => 'add']) ?></li>
+
                 <li class="list-group-item"><?= $this->Html->link(__('Lista de Agendamentos'), ['controller' => 'Schedules', 'action' => 'index']) ?></li>
-                <li class="list-group-item"><?= $this->Html->link(__('Novo Agendamento'), ['controller' => 'Schedules', 'action' => 'add']) ?></li>
+                <li class="list-group-item"><?= $this->Html->link(__('Novo Agendamento'), ['controller' => 'Schedules', 'action
+                ' => 'add']) ?></li>
 
             <?php endif; ?>
             

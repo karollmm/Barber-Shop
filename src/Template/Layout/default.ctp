@@ -37,9 +37,26 @@ $cakeTitle = 'BarberShop'; //titulo da pagina home
 </head>
 
 <body>
-
+	<?php $user = $this->request->session()->read('Auth.User') ?>
 	<!-- nav-menu -->
-	<?= $this->element('home/nav-menu') ?>
+	<?php
+		if($user['role'] == 'admin'){
+			echo $this->element('Home/admin');
+		}
+
+		if($user['role'] == 'adminBarber'){
+			echo $this->element('Home/adminBarber');
+		}
+		
+		if($user['role'] == 'userBarber'){
+			echo $this->element('Home/userBarber');
+		}
+
+		if(!$user){
+			echo $this->element('Home/nav-menu');
+		}
+		
+	?>
 	<!-- nav-menu -->
 
 	<?= $this->Flash->render() ?>
@@ -51,7 +68,7 @@ $cakeTitle = 'BarberShop'; //titulo da pagina home
 
 
 	<!-- footer -->
-	<?= $this->element('home/footer') ?>
+	<?= $this->element('Home/footer') ?>
 	<!-- footer -->
 
 </body>
