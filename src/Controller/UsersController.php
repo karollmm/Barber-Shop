@@ -3,6 +3,8 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Event\Event;
+use Cake\Mailer\MailerAwareTrait;
+
 
 
 /**
@@ -14,6 +16,7 @@ use Cake\Event\Event;
  */
 class UsersController extends AppController
 {
+    use MailerAwareTrait;
 
     public function isAuthorized($user)
     {
@@ -134,6 +137,7 @@ class UsersController extends AppController
                     $user->file_users_id = $image->id;
                     if ($this->Users->save($user)) {
                         $this->Flash->success(__('Usuário adicionado com sucesso.'));
+                        $this->getMailer('User')->send('welcome',[$user]);
                         return $this->redirect(['controller' => 'pages','action' => 'home']);
                     }else{
                         $this->Flash->error(__('O usuário não pode ser adicionado. Por favor, tente novamente.'));
@@ -144,6 +148,7 @@ class UsersController extends AppController
 
             }else{
                 if ($this->Users->save($user)) {
+                    $this->getMailer('User')->send('welcome',[$user]);
                     $this->Flash->success(__('Usuário adicionado com sucesso.'));
                     return $this->redirect(['controller' => 'pages','action' => 'home']);
                 }else{
