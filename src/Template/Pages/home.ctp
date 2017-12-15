@@ -20,15 +20,23 @@ $this->layout='default'; //include para pagina default
 
 <!-- col ==> coluna, row ==> linha, my(div) ==> margin, py ==> padding(div), h ==> heigth, w => width, 
     mr ==> margin right, ml ==> margin left -->
-<div class="py-5 text-center opaque-overlay h-50" style="background-image: url(&quot;https://pingendo.github.io/templates/sections/assets/cover_event.jpg&quot;);">
-<div class="container py-5 my-5 h-75">
-  <div class="row">
-    <div class="col-md-12 text-white my-5">
-
+  <div class="py-5 text-center opaque-overlay h-50" style="background-image: url(&quot;https://pingendo.github.io/templates/sections/assets/cover_event.jpg&quot;);">
+    <div class="py-5 w-100">
+      <div class="container-fluid py-5 my-5 h-75">
+        <div class="row">
+          <div class="col-md-3"></div>
+          <div class="col-md-7">
+            <?= $this->Form->create(null, ['class' => 'form-inline']) ?>
+              <input type="text" name="search" class="form-control w-75" style="height: 50px; font-style: italic;" 
+              placeholder="Procure por sua barbearia favorita, serviços ou endereço">
+              <button type="submit" class="btn btn-dark mx-1" style="height: 50px;"><i class="fa fa-search" aria-hidden="true"></i> Pesquisar</button>
+            <?= $this->Form->end(); ?>
+          </div>
+          <div class="col-md-2"></div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-</div>
 
 <div class="py-5 text-center bg-light">
     <div class="container">

@@ -1,4 +1,5 @@
 <?php $user = $this->request->session()->read('Auth.User'); ?>
+
 <div class="p-4 w-100 my-3">
     <div class="row w-100">
       <div class="col-md-3">
