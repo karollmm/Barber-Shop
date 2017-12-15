@@ -4,7 +4,6 @@
 
   <div class="container-fluid">
 
-
     <?= $this->Html->link(' <b> BarberShop </b> ', ['controller' => 'pages','action' => 'home'],
     ['escape' => false, 'class' => 'navbar-brand']) ?>
 
@@ -19,15 +18,15 @@
 
           <div class="btn-group">
 
-            <button class="btn navbar-btn ml-3 btn-dark dropdown-toggle" data-toggle="dropdown">Barbearia</button>
+            <button class="btn navbar-btn ml-3 btn-dark dropdown-toggle" data-toggle="dropdown"><i class="fa fa-home" aria-hidden="true"></i> Barbearia</button>
 
             <div class="dropdown-menu">
 
-              <?= $this->Html->link(__('<i class="fa fa-calendar" aria-hidden="true"></i>'. ' Cadastrar Barbearia') ,['controller' => 'barbershops', 'action' => 'add'], ['escape' => false, 'class' => 'dropdown-item'])?>
+              <?= $this->Html->link(__(' Cadastrar Barbearia') ,['controller' => 'barbershops', 'action' => 'add'], ['escape' => false, 'class' => 'dropdown-item'])?>
 
               <div class="dropdown-divider"></div>
 
-              <?= $this->Html->link(__('<i class="fa fa-calendar" aria-hidden="true"></i>'. ' Barbearias Cadastradas') ,['controller' => 'barbershops', 'action' => 'index'], ['escape' => false, 'class' => 'dropdown-item'])?>                   
+              <?= $this->Html->link(__(' Barbearias Cadastradas') ,['controller' => 'barbershops', 'action' => 'index'], ['escape' => false, 'class' => 'dropdown-item'])?>                   
             </div>
 
           </li>
@@ -37,15 +36,15 @@
 
             <div class="btn-group">
 
-              <button class="btn navbar-btn ml-3 btn-dark dropdown-toggle" data-toggle="dropdown">Serviço</button>
+              <button class="btn navbar-btn ml-3 btn-dark dropdown-toggle" data-toggle="dropdown"><i class="fa fa-book" aria-hidden="true"></i> Serviço</button>
 
               <div class="dropdown-menu">
 
-                <?= $this->Html->link(__('<i class="fa fa-calendar" aria-hidden="true"></i>'. ' Adicionar Serviço') ,['controller' => 'services', 'action' => 'add'], ['escape' => false, 'class' => 'dropdown-item'])?>
+                <?= $this->Html->link(__('Adicionar Serviço') ,['controller' => 'services', 'action' => 'add'], ['escape' => false, 'class' => 'dropdown-item'])?>
 
                 <div class="dropdown-divider"></div>
 
-                <?= $this->Html->link(__('<i class="fa fa-calendar" aria-hidden="true"></i>'. ' Serviços Cadastrados') ,['controller' => 'services', 'action' => 'index'], ['escape' => false, 'class' => 'dropdown-item'])?>
+                <?= $this->Html->link(__('Serviços Cadastrados') ,['controller' => 'services', 'action' => 'index'], ['escape' => false, 'class' => 'dropdown-item'])?>
 
               </div>
 
@@ -56,15 +55,15 @@
 
             <div class="btn-group">
 
-              <button class="btn navbar-btn ml-3 btn-dark dropdown-toggle" data-toggle="dropdown">Agendamento</button>
+              <button class="btn navbar-btn ml-3 btn-dark dropdown-toggle" data-toggle="dropdown"><i class="fa fa-calendar" aria-hidden="true"></i> Agendamento</button>
 
               <div class="dropdown-menu">
 
-                <?= $this->Html->link(__('<i class="fa fa-calendar" aria-hidden="true"></i>'. ' Realizar um Agendamento') ,['controller' => 'schedules', 'action' => 'add'], ['escape' => false, 'class' => 'dropdown-item'])?>
+                <?= $this->Html->link(__('Realizar um Agendamento') ,['controller' => 'schedules', 'action' => 'add'], ['escape' => false, 'class' => 'dropdown-item'])?>
 
                 <div class="dropdown-divider"></div>
 
-                <?= $this->Html->link(__('<i class="fa fa-calendar" aria-hidden="true"></i>'. ' Agendamento cadastrados') ,['controller' => 'schedules', 'action' => 'index'], ['escape' => false, 'class' => 'dropdown-item'])?>
+                <?= $this->Html->link(__('Agendamento cadastrados') ,['controller' => 'schedules', 'action' => 'index'], ['escape' => false, 'class' => 'dropdown-item'])?>
 
               </div>
 
@@ -75,20 +74,20 @@
               <div class="btn-group">
 
                 <button class="btn navbar-btn ml-3 btn-dark dropdown-toggle" data-toggle="dropdown"> 
-                  <?= $user['name'] ?> 
+                  <i class="fa fa-user-circle-o" aria-hidden="true"></i> <?= $user['name'] ?> 
                 </button>
 
                 <div class="dropdown-menu">
 
-                  <?= $this->Html->link(__('<i class="fa fa-user-circle-o" aria-hidden="true"></i>'. ' Perfil') ,['controller' => 'Users', 'action' => 'view', $user['id']], ['escape' => false, 'class' => 'dropdown-item'])?>
+                  <?= $this->Html->link(__('Perfil') ,['controller' => 'Users', 'action' => 'view', $user['id']], ['escape' => false, 'class' => 'dropdown-item'])?>
 
                   <div class="dropdown-divider"></div>
 
-                  <?= $this->Html->link(__('<i class="fa fa-pencil-square-o" aria-hidden="true"></i>'. ' Editar dados') ,['controller' => 'Users', 'action' => 'edit', $user['id']], ['escape' => false, 'class' => 'dropdown-item'])?>
+                  <?= $this->Html->link(__(' Editar dados') ,['controller' => 'Users', 'action' => 'edit', $user['id']], ['escape' => false, 'class' => 'dropdown-item'])?>
 
                   <div class="dropdown-divider"></div>
 
-                  <?= $this->Html->link(__('<i class="fa fa-sign-out" aria-hidden="true"></i>' . ' Logout'),['controller' => 'Users', 'action' => 'logout'], ['escape' => false, 'class' => 'dropdown-item'])?>                   
+                  <?= $this->Html->link(__('Sair'),['controller' => 'Users', 'action' => 'logout'], ['escape' => false, 'class' => 'dropdown-item'])?>                   
 
                 </div>
 

@@ -15,24 +15,24 @@
 
       <ul class="navbar-nav">
 
-          <li class="nav-item">
-            
-            <div class="btn-group">
+        <li class="nav-item">
 
-              <button class="btn navbar-btn ml-3 btn-dark dropdown-toggle" data-toggle="dropdown"> Serviços </button>
+          <div class="btn-group">
 
-              <div class="dropdown-menu">
+            <button class="btn navbar-btn ml-3 btn-dark dropdown-toggle" data-toggle="dropdown"><i class="fa fa-book" aria-hidden="true"></i> Serviço</button>
 
-                <?= $this->Html->link(__('<i class="fa fa-calendar" aria-hidden="true"></i>'. ' Realizar Agendamento') ,['controller' => 'schedules', 'action' => 'add'], ['escape' => false, 'class' => 'dropdown-item'])?>
+            <div class="dropdown-menu">
 
-                <div class="dropdown-divider"></div>
+              <?= $this->Html->link(__('Adicionar Serviço') ,['controller' => 'services', 'action' => 'add'], ['escape' => false, 'class' => 'dropdown-item'])?>
 
-                <?= $this->Html->link(__('<i class="fa fa-calendar" aria-hidden="true"></i>'. ' Lista de Agendamentos') ,['controller' => 'schedules', 'action' => 'index'], ['escape' => false, 'class' => 'dropdown-item'])?>
+              <div class="dropdown-divider"></div>
 
-              </div>
+              <?= $this->Html->link(__('Serviços Cadastrados') ,['controller' => 'services', 'action' => 'index'], ['escape' => false, 'class' => 'dropdown-item'])?>
+
+            </div>
 
           </li>
-        
+
           <li class="nav-item">
 
             <div class="btn-group">
@@ -43,29 +43,29 @@
 
               <div class="dropdown-menu">
 
-                <?= $this->Html->link(__('<i class="fa fa-user-circle-o" aria-hidden="true"></i>'. ' Perfil') ,['controller' => 'Users', 'action' => 'view', $user['id']], ['escape' => false, 'class' => 'dropdown-item'])?>
+                <?= $this->Html->link(__('Perfil') ,['controller' => 'Users', 'action' => 'view', $user['id']], ['escape' => false, 'class' => 'dropdown-item'])?>
 
                 <div class="dropdown-divider"></div>
 
-                <?= $this->Html->link(__('<i class="fa fa-pencil-square-o" aria-hidden="true"></i>'. ' Editar dados') ,['controller' => 'Users', 'action' => 'edit', $user['id']], ['escape' => false, 'class' => 'dropdown-item'])?>
+                <?= $this->Html->link(__('Editar dados') ,['controller' => 'Users', 'action' => 'edit', $user['id']], ['escape' => false, 'class' => 'dropdown-item'])?>
 
                 <div class="dropdown-divider"></div>
 
-                <?= $this->Html->link(__('<i class="fa fa-sign-out" aria-hidden="true"></i>' . ' Logout'),['controller' => 'Users', 'action' => 'logout'], ['escape' => false, 'class' => 'dropdown-item'])?>                   
+                <?= $this->Html->link(__('Logout'),['controller' => 'Users', 'action' => 'logout'], ['escape' => false, 'class' => 'dropdown-item'])?>                   
 
               </div>
 
             </li>
 
-        </ul>
+          </ul>
+
+        </div>
 
       </div>
 
     </div>
 
   </div>
-
-</div>
 
 </nav>
 <!-- nav-menu -->
