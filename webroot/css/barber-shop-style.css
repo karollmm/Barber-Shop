@@ -96,3 +96,7 @@ select {
     padding: 0.5rem;
     height: 2.3125rem;
 }
+.link{
+text-decoration:underline;color:#000000;
+
+}

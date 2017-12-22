@@ -230,8 +230,8 @@ return [
              */
             //'port' => 'non_standard_port_number',
             'username' => 'root',
-            'password' => 'root',
-            'database' => 'BarberShop',
+            'password' => '123',
+            'database' => 'Barber_Shop_db',
             'encoding' => 'utf8',
             'timezone' => 'UTC',
             'flags' => [],

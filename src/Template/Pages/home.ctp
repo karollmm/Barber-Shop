@@ -43,43 +43,44 @@ $this->layout='default'; //include para pagina default
       <div class="row">
         <div class="col-md-4 p-4">
           <div class="img-fluid d-block rounded-circle mx-auto bolha">
-            <i class="fa fa-scissors fa-4x icon-bolha"></i>
+           <a href="services/add" class="link"> <i class="fa fa-scissors fa-4x icon-bolha"></i></a>
           </div>
           <p><br><b>Serviços</b>
         </div>
         <div class="col-md-4 p-4">
           <div class="img-fluid d-block rounded-circle mx-auto bolha">
-          <i class="fa fa-map-marker fa-4x icon-bolha"></i>
+           <a href="Services.add" class="link"><i class="fa fa-map-marker fa-4x icon-bolha"></i></a>
           </div>
           <p><br><b>Localização</b>
         </div>
         <div class="col-md-4 p-4">
           <div class="img-fluid d-block rounded-circle mx-auto bolha">
-          <i class="fa fa-phone fa-4x icon-bolha"></i>
+           <a href="#" class="link"><i class="fa fa-phone fa-4x icon-bolha"></i></a>
           </div>
           <p><br><b>Contato</b>
         </div>
         <div class="col-md-4 p-4">
           <div class="img-fluid d-block rounded-circle mx-auto bolha">
-          <i class="fa fa-street-view fa-4x icon-bolha"></i>
+          <a href="schedules/add" class="link"> <i class="fa fa-street-view fa-4x icon-bolha"></i></a>
           </div>
-          <p><br><b>Flexibilidade</b>
+          <p><br><b>Agendamento</b>
         </div>
         <div class="col-md-4 p-4">
           <div class="img-fluid d-block rounded-circle mx-auto bolha">
-          <i class="fa fa-bell fa-4x icon-bolha"></i>
+          <a href="feedbacks/add" class="link"> <i class="fa fa-bell fa-4x icon-bolha"></i></a>
           </div>
-          <p><br><b>Notificações</b>
+          <p><br><b>Feedbacks</b>
         </div>
         <div class="col-md-4 p-4">
           <div class="img-fluid d-block rounded-circle mx-auto bolha">
-          <i class="fa fa-star fa-4x icon-bolha"></i>
+          <a href="#" class="link"> <i class="fa fa-star fa-4x icon-bolha"></i></a>
           </div>
           <p><br><b>Tendências</b>
         </div>
       </div>
     </div>
   </div>
+
 
 <div class="py-5 bg-light">
     <div class="container-fluid">
